@@ -10,3 +10,4 @@ A branch is a copy of the file or directory you're modifying. Developers use bra
 A commit is a record or snapshot of your updated code. A good commit message clearly states what feature or changes have been made in the version of the code or file you're committing.
 * What is a merge conflict?
 A merge conflict occurs when different edits are made to the same line in a given file, then those files are merged back into the master from which they're branched.
+Additional line for review!

@@ -1,0 +1,28 @@
+.wrapper{
+  position:relative;
+  width:50%;
+  margin: auto;
+  top:25px;
+  align-content: center;
+
+}
+
+#octopus{
+  position: absolute;
+  top:60px;
+  left:15px;
+}
+
+#hat {
+  position:absolute;
+  top:0px;
+  left:0px;
+
+}
+
+#glasses{
+  position:absolute;
+  top:160px;
+  left:55px;
+
+}

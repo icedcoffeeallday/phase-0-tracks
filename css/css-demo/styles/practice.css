@@ -1,0 +1,48 @@
+#contact-info p{
+	font-size: .8em;
+}
+
+section.job{
+	background-color: #e9e5dc;
+	padding: 20px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border-radius: 15px;
+}
+
+ul.skills{
+	font-size: .8em;
+}
+/*
+	1. CSS
+		Casading means CSS files can be layered on top of each other. 
+		If multiple CSS files refer to the same properties, the one that 
+		the browser will render is the later (newer) one.
+	Reference: https://www.thoughtco.com/what-does-cascade-mean-3466872
+*/
+
+/*
+	2A. CSS References
+	Some helpful ones:
+		-http://www.lesliefranke.com/files/reference/csscheatsheet.html
+		-https://www.w3schools.com/cssref/default.asp
+	2B. Pseudoselectors
+		Pseudoselectors applies a certain action or state based on factors other than content.
+		They don't always show up.	
+	Reference:
+		https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
+*/
+
+/* Pseudoselector Example*/
+#resume-title:hover{
+	color: purple;
+
+}
+
+/*Child Selector Example*/
+
+ul.skills > li {
+	background-color: white;
+
+
+}

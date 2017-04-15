@@ -1,3 +1,5 @@
+/*Pair programming for Andrea Scott and Lindsay Maher, 4/14/17*/
+
 body{
   max-width:960px;
 }
@@ -55,15 +57,20 @@ figcaption {
     width:100%!important;
     min-width:0;
   }
-}
-
-/*
-
-@media screen and (min-width:600px); {
-  #DIY {
-  float:right;
-  vertical-align: top;
-  width:20%;
+  h1 {
+    font-size:.8em;
+  }
+  #external-links{
+    margin:auto;
+  }
+  body{
+    margin:auto;
   }
 }
-*/
+
+@media screen and (max-width:800px) {
+  #external-links {
+  text-align: center;
+  }
+}
+

@@ -1,0 +1,38 @@
+#Robot vs. Elevator
+
+- Enter elevator
+- Face the panel with numbered buttons
+- Assess which floor you are on by:
+    - Reading the number displayed in a digital screen above the number buttons, or
+    - Observing which if any buttons are lit up
+- Select a floor to go to:
+    - If you are on floor one, push a button with a value >1
+    - If you are on a floor >1 and wish to go down, push a button with a value less than but not equal to the floor you are on
+    - If you are on a floor >1 and wish to go up, push a button with a value greater than but not equal to number of the floor you are on
+- When the elevator arrives at your floor, exit the elevator
+
+
+
+# Brush your teeth for a really long time (your dentist will love you!)
+
+- Set a timer for 2:00 minutes
+- Position the toothbrush on or near the teeth in the lower left quadrant of your mouth
+- Start brushing your teeth with the toothbrush
+    - At the same time as brushing commences, start counting down the timer
+- While the timer is running:
+    - While the timer is <= 2:00 and >= 1:31, brush the teeth in the lower left quadrant of your mouth
+    - When the timer hits 1:30, switch toothbrush position to the teeth in the upper left quadrant of your mouth
+    - While the timer is < 1:30 and >= 1:01, brush the teeth in the upper left quadrant of your mouth
+    - When the timer hits 1:00, switch toothbrush position to the teeth in the upper right quadrant of your mouth
+    - While the timer is less than 1:00 and >=0:31, brush the teeth in the upper right quadrant of your mouth
+    - When the timer hits 0:30, switch toothbrush position to the teeth in the lower right quadrant of your mouth
+    - While the timer is less than 0:30 and >=0:00, brush the teeth in the upper right quadrant of your mouth.
+- When the timer hits 0:00, stop brushing your teeth and assess whether teeth feel clean.
+- If your teeth do not feel clean:
+    - Fill small cup with mouthwash
+    - Set timer for 0:30 seconds
+    - Start timer and put mouthwash in mouth, begin swishing mouthwash vigorously in mouth
+    - While timer is running, continue swishing mouthwash
+    - When timer reaches 0:00, spit mouthwash into sink
+    - Rinse mouth with water
+- Else, rinse mouth with water

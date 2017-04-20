@@ -1,3 +1,8 @@
+puts "Hello, HR team! How many employees are you processing today?"
+employees = gets.chomp.to_i
+
+while employees > 0
+
 puts "What is your name?"
 name = gets.chomp
   if 
@@ -20,26 +25,32 @@ likes_garlic = gets.chomp
 puts "Almost done! We have great benefits, too. Would you like to enroll in our health insurance?"
 wants_insurance = gets.chomp
 
-#p name
-#p stated_age
-#p year_born
-#p calculated_age
-#p likes_garlic
-#p wants_insurance
+puts "One final thing! Do you have any allergies? Please list them one-by-one, and type 'done' when your list is finished."
+allergies = 0
+until allergies == "done"
+  allergies = gets.chomp
+  if (allergies == 'sunshine' || allergies == 'Sunshine')
+    sunshine_allergy = true
+  else
+    sunshine_allergy = false
+end
+end
 
-case
+puts case
+when sunshine_allergy == true
+  vampire_status = "Probably a vampire."
 when
-  (calculated_age == stated_age) && (likes_garlic = 'yes' || wants_insurance = 'yes') && obvious_vampire_name == false
+  (calculated_age == stated_age) && (likes_garlic == 'yes' || wants_insurance == 'yes') && obvious_vampire_name == false
   vampire_status = "Probably NOT a vampire."
   #employee got their age right, and is willing to eat garlic bread or sign up for insurance, 
   #the result is “Probably not a vampire.”
 when 
-  (calculated_age != stated_age) && (likes_garlic = 'no' || wants_insurance = 'no') && obvious_vampire_name == false
+  (calculated_age != stated_age) && (likes_garlic == 'no' || wants_insurance == 'no') && obvious_vampire_name == false
   vampire_status = "Probably a vampire."
   #employee got their age wrong, and hates garlic bread or waives insurance,
   # the result is “Probably a vampire.”
 when
-  (calculated_age != stated_age) && likes_garlic = 'no' && wants_insurance = 'no' && obvious_vampire_name == false
+  (calculated_age != stated_age) && likes_garlic == 'no' && wants_insurance == 'no' && obvious_vampire_name == false
   vampire_status = "Almost certainly a vampire."
   #employee got their age wrong, hates garlic bread, and doesn’t want insurance,
   #the result is “Almost certainly a vampire.”
@@ -52,4 +63,6 @@ else
   vampire_status = "Results inconclusive."
 end
 
-puts vampire_status
+employees -= 1
+
+end

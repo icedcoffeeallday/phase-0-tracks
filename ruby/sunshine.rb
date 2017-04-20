@@ -6,7 +6,7 @@ until allergies == "done"
     sunshine_allergy = true
   else
     sunshine_allergy = false
-end
+  end
 end
 p allergies
 p sunshine_allergy

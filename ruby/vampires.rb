@@ -1,10 +1,16 @@
 puts "What is your name?"
 name = gets.chomp
+  if 
+    (name == 'Drake Cula' || name == 'Tu Fang')
+    obvious_vampire_name = true
+  else
+    obvious_vampire_name = false
+  end
 
 puts "How old are you?"
 stated_age = gets.chomp.to_i
 
-puts "Oh, cool. I\"m bad at math. What year were you born?"
+puts "Oh, cool. I\'m bad at math. What year were you born?"
 year_born = gets.chomp.to_i
 calculated_age = 2017 - year_born
 
@@ -23,26 +29,27 @@ wants_insurance = gets.chomp
 
 case
 when
-  (calculated_age == stated_age) && (likes_garlic = 'yes' || wants_insurance = 'yes')
+  (calculated_age == stated_age) && (likes_garlic = 'yes' || wants_insurance = 'yes') && obvious_vampire_name == false
   vampire_status = "Probably NOT a vampire."
   #employee got their age right, and is willing to eat garlic bread or sign up for insurance, 
   #the result is “Probably not a vampire.”
 when 
-  (calculated_age != stated_age) && (likes_garlic = 'no' || wants_insurance = 'no')
+  (calculated_age != stated_age) && (likes_garlic = 'no' || wants_insurance = 'no') && obvious_vampire_name == false
   vampire_status = "Probably a vampire."
   #employee got their age wrong, and hates garlic bread or waives insurance,
   # the result is “Probably a vampire.”
 when
-  (calculated_age != stated_age) && likes_garlic = 'no' && wants_insurance = 'no'
+  (calculated_age != stated_age) && likes_garlic = 'no' && wants_insurance = 'no' && obvious_vampire_name == false
   vampire_status = "Almost certainly a vampire."
   #employee got their age wrong, hates garlic bread, and doesn’t want insurance,
   #the result is “Almost certainly a vampire.”
 when 
-  name == "Drake Cula" || name = "Tu Fang"
-  vampire_status = "definitely a vampire."
+  obvious_vampire_name == true
+  vampire_status = "Definitely a vampire."
   #anyone going by the name of “Drake Cula” or “Tu Fang” is clearly a vampire, because come on. 
   #In that case, you should print “Definitely a vampire.”
 else
   vampire_status = "Results inconclusive."
 end
 
+puts vampire_status

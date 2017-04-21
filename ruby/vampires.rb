@@ -25,8 +25,6 @@ likes_garlic = gets.chomp
 puts "Almost done! We have great benefits, too. Would you like to enroll in our health insurance?"
 wants_insurance = gets.chomp
 
-# 4/19: Left off here, stuck with getting sunshine allergies to evaluate correctly. True only shows up if most recent allergy is true.
-# need to store responses in array?
 puts "One final thing! Do you have any allergies? Please list them one-by-one, and type 'done' when your list is finished."
 allergies = 0
 until (allergies == "done" || allergies == 'sunshine' || allergies == 'Sunshine') 

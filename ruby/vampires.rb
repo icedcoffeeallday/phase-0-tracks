@@ -29,7 +29,7 @@ wants_insurance = gets.chomp
 # need to store responses in array?
 puts "One final thing! Do you have any allergies? Please list them one-by-one, and type 'done' when your list is finished."
 allergies = 0
-until allergies == "done"
+until (allergies == "done" || allergies == 'sunshine' || allergies == 'Sunshine') 
   allergies = gets.chomp
   if (allergies == 'sunshine' || allergies == 'Sunshine')
     sunshine_allergy = true
@@ -70,3 +70,5 @@ end
 employees -= 1
 
 end
+
+puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."

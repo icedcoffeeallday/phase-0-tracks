@@ -1,3 +1,5 @@
+#Pair programming for Andrea Scott and George Dzuricsko
+
 puts "What's the hamster's name?"
 hamster_name = gets.chomp
 

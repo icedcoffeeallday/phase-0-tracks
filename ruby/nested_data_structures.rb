@@ -9,29 +9,18 @@ my_deals = {
             deal_name: '10K Widgets and Batteries',
             deal_value: 20000,
               product_interest: [
-                    product_1: {
-                      product_name: 'Widgets',
-                      product_type: 'Hardware'
-                    }, #close product1
-                    product_2: {
-                      product_name: 'Widget Washers',
-                      product_type: 'Parts'
-                    }, #close product2
-                    product_3: {
-                      product_name: 'Widget Batteries',
-                      product_type: 'Batteries'
-                    }, #close product3
+                    'Widgets',
+                    'Widget Washers',
+                    'Spare Parts',
+                    'Widget Batteries'
                 ] #close product list
           }, #close deal1
           deal2: {
             deal_name: 'Upsell 20 Batteries',
             deal_value: 200,
               product_interest: [
-                product_1: {
-                  product_name: 'Widget Batteries',
-                  product_type: 'Batteries'
-                  } #close product1
-              ]#close product list
+                    'Widget Batteries'
+                ] #close product list
           } #close deal2
         } #close all deals
       }, #close customer_1
@@ -44,14 +33,14 @@ my_deals = {
             deal_name: 'Prospecting',
             deal_value: 1000,
               product_interest: [
-                product_1: {
-                  product_name: 'Widget Starter Pack',
-                  product_type: 'Hardware'
-                  }
+                  'Widget Starter Pack'
                 ] #close product list
           } #close deal1
         } #close all deals
   } #close customer2
 } #close main hash
-puts "My main deal is worth:"
-puts my_deals[:customer_1][:deal1][:deal_value]
+puts "My main deal is:"
+puts my_deals[:customer_1][:deals][:deal1][:deal_name]
+puts "The third product in it is:"
+puts my_deals[:customer_1][:deals][:deal1][:product_interest][2]
+puts "I really need to call #{my_deals[:customer_2][:main_contact]} about her interest in the #{my_deals[:customer_2][:deals][:deal1][:product_interest][0]}. I need that $#{my_deals[:customer_2][:deals][:deal1][:deal_value]} for this month's quota."

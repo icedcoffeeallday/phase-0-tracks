@@ -65,8 +65,6 @@ puts "Wants sustainable/eco-friendly products? (y/n)"
   design_form[:sustainable] = to_boolean(design_form [:sustainable])
 puts "Client's budget?"
   design_form[:budget] = gets.chomp.to_i
-puts "Anything else?"
-  design_form[:notes] = gets.chomp
 
 #user_confirmation
 puts "Here's what you entered for the client. Would you like to modify anything? Answer yes/no."
@@ -82,6 +80,8 @@ modify_form = gets.chomp
     puts "#{:square_footage.to_s}: #{design_form[:square_footage]}"
     puts "#{:design_theme.to_s}: #{design_form[:design_theme]}"
     puts "#{:completion_date.to_s}: #{design_form[:completion_date]}"
+    puts "#{:sustainable.to_s}: #{design_theme[:sustainable]}"
+    puts "#{:budget.to_s}: #{design_form[:budget]}" 
   #  puts "#{design_form[0]}"
   elsif modify_form == "yes"
     puts "OK"

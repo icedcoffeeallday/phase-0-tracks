@@ -1,19 +1,3 @@
-#Your program should ...
-
-#Prompt the designer/user for all of this information.
-#Convert any user input to the appropriate data type.
-#Print the hash back out to the screen when the designer has answered all of the questions.
-#Give the user the opportunity to update a key (no need to loop, once is fine). 
-# After all, sometimes users make mistakes! If the designer says "none", skip it. 
-#But if the designer enters "decor_theme" (for example), your program 
-#should ask for a new value and update the :decor_theme key. 
-#(Hint: Strings have methods that will turn them into symbols, which would be quite handy here.) 
-#You can assume the user will correctly input a key that exists in your hash -- no need to handle user errors.
-#Print the latest version of the hash, and exit the program.
-
-#the client's name, age, number of children, decor theme, 
-#and so on (you can choose your own as long as it's a good mix of string, integer, and boolean data).
-
 #Pseudocode!
 
 #Initialize hash
@@ -25,6 +9,8 @@
 #Ask user if they would like to update any given answer:
 # - If user responds "none" or "no", thank them and skip to final step
 # - If user responds with a hash key they want to update, have them enter the new value for that key
+#    - Look up key based on user input
+#    - Replace value in that key with user input
 # - Note: no loop built for multiple key updates, per instructions
 #Print out final form
 
@@ -68,22 +54,21 @@ puts "Client's budget?"
 
 #user_confirmation
 puts "Here's what you entered for the client. Would you like to modify anything? Answer yes/no."
-puts design_form
+    design_form.each {|key, value| puts "#{key}: #{value}" }
+
 modify_form = gets.chomp
-  if modify_form == "no"
-    puts "Thank you! Here's your final dossier on the #{design_form[:name]}\'s project!"
-    puts "#{:name.to_s}: #{design_form[:name]}"
-    puts "#{:age.to_s}: #{design_form[:age]}"
-    puts "#{:phone.to_s}: #{design_form[:phone]}"
-    puts "#{:address.to_s}: #{design_form[:address]}"
-    puts "#{:number_children.to_s}: #{design_form[:number_children]}"
-    puts "#{:square_footage.to_s}: #{design_form[:square_footage]}"
-    puts "#{:design_theme.to_s}: #{design_form[:design_theme]}"
-    puts "#{:completion_date.to_s}: #{design_form[:completion_date]}"
-    puts "#{:sustainable.to_s}: #{design_theme[:sustainable]}"
-    puts "#{:budget.to_s}: #{design_form[:budget]}" 
-  #  puts "#{design_form[0]}"
-  elsif modify_form == "yes"
-    puts "OK"
-  else puts "whatever"
+  if modify_form == "yes"
+    puts "Here are the names of the form values you can edit. Type in the name of a single form field in your response."
+    design_form.each {|key, value| puts "#{key}: #{value}" }
+    #get user input for key to update
+    update_key = gets.chomp.to_sym
+    puts "What would you like to change this answer to?"
+    #get user input for value to update
+    new_value = gets.chomp
+    design_form[update_key] = new_value
+    puts "Here's your updated form!"
+    design_form.each {|key, value| puts "#{key}: #{value}" }
+  else 
+    puts "Here's the final form!"
+    design_form.each {|key, value| puts "#{key}: #{value}" }
   end

@@ -39,6 +39,10 @@ my_deals = {
         } #close all deals
   } #close customer2
 } #close main hash
+#some outputs. always be closing!
+puts "I have these customers:"
+puts my_deals[:customer_1][:name]
+puts my_deals[:customer_2][:name]
 puts "My main deal is:"
 puts my_deals[:customer_1][:deals][:deal1][:deal_name]
 puts "The third product in it is:"

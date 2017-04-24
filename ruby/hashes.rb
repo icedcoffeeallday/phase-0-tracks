@@ -59,13 +59,14 @@ puts "Here's what you entered for the client. Would you like to modify anything?
 modify_form = gets.chomp
   if modify_form == "yes"
     puts "Here are the names of the form values you can edit. Type in the name of a single form field in your response."
-    design_form.each {|key, value| puts "#{key}: #{value}" }
+      design_form.each {|key, value| puts "#{key}: #{value}" }
     #get user input for key to update
-    update_key = gets.chomp.to_sym
+      update_key = gets.chomp.to_sym
     puts "What would you like to change this answer to?"
-    #get user input for value to update
-    new_value = gets.chomp
-    design_form[update_key] = new_value
+      #get user input for value to update
+      new_value = gets.chomp
+      #update key with new value
+      design_form[update_key] = new_value
     puts "Here's your updated form!"
     design_form.each {|key, value| puts "#{key}: #{value}" }
   else 

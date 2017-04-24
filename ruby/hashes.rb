@@ -14,8 +14,9 @@
 #the client's name, age, number of children, decor theme, 
 #and so on (you can choose your own as long as it's a good mix of string, integer, and boolean data).
 
-#Psuedocode!
+#Pseudocode!
 
+#Initialize hash
 #Ask user questions
 #Assign hash keys to questions
 #Convert user response data to correct data type
@@ -27,15 +28,46 @@
 # - Note: no loop built for multiple key updates, per instructions
 #Print out final form
 
+#methods
+def to_boolean (x)
+  if x == "y"
+    true
+  elsif x == "n"
+    false
+  else nil
+  end
+end
+    
+#DRIVER CODE
+
+#initialize hash
+design_form = {}
+
 #questions
 puts "What is client's name?"
+  design_form[:name] = gets.chomp
 puts "Client's age?"
+  design_form[:age] = gets.chomp.to_i
 puts "Client's phone number?"
+  design_form[:phone] = gets.chomp
 puts "Client's address?"
+  design_form[:address] = gets.chomp
 puts "Number of children?"
+  design_form[:number_children] = gets.chomp.to_i
 puts "Square footage of space to be designed?"
+  design_form[:square_footage] = gets.chomp.to_i
 puts "Client's desired decor theme?"
+  design_form[:design_theme] = gets.chomp
 puts "Desired project completion date?"
+  design_form[:competion_date] = gets.chomp
 puts "Wants sustainable/eco-friendly products? (y/n)"
-  #convert to true/false
+  design_form[:sustainable] = gets.chomp
+  design_form[:sustainable] = to_boolean(design_form [:sustainable])
 puts "Client's budget?"
+  design_form[:budget] = gets.chomp.to_i
+puts "Anything else?"
+  design_form[:notes] = gets.chomp
+
+#user confirmation
+puts "Here's what you entered for the client. Would you like to modify anything?"
+print design_form

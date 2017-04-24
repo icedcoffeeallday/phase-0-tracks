@@ -59,7 +59,7 @@ puts "Square footage of space to be designed?"
 puts "Client's desired decor theme?"
   design_form[:design_theme] = gets.chomp
 puts "Desired project completion date?"
-  design_form[:competion_date] = gets.chomp
+  design_form[:completion_date] = gets.chomp
 puts "Wants sustainable/eco-friendly products? (y/n)"
   design_form[:sustainable] = gets.chomp
   design_form[:sustainable] = to_boolean(design_form [:sustainable])
@@ -68,6 +68,22 @@ puts "Client's budget?"
 puts "Anything else?"
   design_form[:notes] = gets.chomp
 
-#user confirmation
-puts "Here's what you entered for the client. Would you like to modify anything?"
-print design_form
+#user_confirmation
+puts "Here's what you entered for the client. Would you like to modify anything? Answer yes/no."
+puts design_form
+modify_form = gets.chomp
+  if modify_form == "no"
+    puts "Thank you! Here's your final dossier on the #{design_form[:name]}\'s project!"
+    puts "#{:name.to_s}: #{design_form[:name]}"
+    puts "#{:age.to_s}: #{design_form[:age]}"
+    puts "#{:phone.to_s}: #{design_form[:phone]}"
+    puts "#{:address.to_s}: #{design_form[:address]}"
+    puts "#{:number_children.to_s}: #{design_form[:number_children]}"
+    puts "#{:square_footage.to_s}: #{design_form[:square_footage]}"
+    puts "#{:design_theme.to_s}: #{design_form[:design_theme]}"
+    puts "#{:completion_date.to_s}: #{design_form[:completion_date]}"
+  #  puts "#{design_form[0]}"
+  elsif modify_form == "yes"
+    puts "OK"
+  else puts "whatever"
+  end

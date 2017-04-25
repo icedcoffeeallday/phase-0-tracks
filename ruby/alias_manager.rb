@@ -67,6 +67,29 @@ end
 end
 end
 
+def create_alias(word)
+  vowels_lower = ['a','e','i','o','u']
+  vowels_upper = vowels_lower.map(&:upcase)
+  consonants_lower = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z']
+  consonants_upper = consonants_lower.map(&:upcase)
+  
+updated_vowels = word.map do |char|
+  case
+  when vowels_lower.include?(char)
+    vowels_lower.rotate(1)[vowels_lower.index(char)]
+  when vowels_upper.include?(char)
+    vowels_upper.rotate(1)[vowels_upper.index(char)]
+  when consonants_lower.include?(char)
+    consonants_lower.rotate(1)[consonants_lower.index(char)]
+  when consonants_upper.include?(char)
+    consonants_upper.rotate(1)[consonants_upper.index(char)]
+  else (char)
+end
+end
+end
+
+
+
 
 #Initialize array
 name_list =[]
@@ -74,13 +97,16 @@ name_list =[]
 #DRIVER CODE
 
 puts "What name should I alias?"
-name = gets.chomp.to_str
-name_list << name
+  name = gets.chomp.to_str
+  name_list << name
 #split letters
-name_letters = name.chars
+  name_letters = name.chars
     #debugging
     #p name
     #p name.chars
     #p name_list
-name_letters = next_vowel (name_letters)
-name_letters = next_consonant (name_letters)
+#process letters
+name_letters = create_alias (name_letters)
+alias_name = name_letters.join().split.reverse.join(" ")
+name_list << alias_name
+  #p name_list

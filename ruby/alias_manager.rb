@@ -43,7 +43,7 @@
 #methods
 def next_vowel(word)
   vowels_lower = ['a','e','i','o','u']
-  vowels_upper = ['A','E','I','O','U']
+  vowels_upper = vowels_lower.map(&:upcase)
   updated_vowels = word.map do |char|
   if vowels_lower.include?(char)
     vowels_lower.rotate(1)[vowels_lower.index(char)]
@@ -54,8 +54,18 @@ end
 end
 end
 
-    
-
+def next_consonant(word)
+  consonants_lower = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z']
+  consonants_upper = consonants_lower.map(&:upcase)
+  updated_consonants = word.map do |char|
+  if consonants_lower.include?(char)
+    consonants_lower.rotate(1)[consonants_lower.index(char)]
+  elsif consonants_upper.include?(char)
+    consonants_upper.rotate(1)[consonants_upper.index(char)]
+  else (char)
+end
+end
+end
 
 
 #Initialize array
@@ -72,4 +82,5 @@ name_letters = name.chars
     #p name
     #p name.chars
     #p name_list
-  next_vowel (name_letters)
+name_letters = next_vowel (name_letters)
+name_letters = next_consonant (name_letters)

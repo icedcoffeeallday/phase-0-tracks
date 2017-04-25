@@ -66,20 +66,40 @@ end
 
 #Initialize array
 name_list =[]
+quit_status = 0
 
 #DRIVER CODE
 
-puts "What name should I alias?"
+
+#####this loop needs love#####
+puts "You're about to engage in espionage 101: digital spy naming ..."
+while quit_status != "quit"
+puts "Hit enter to continue, if you dare ... Or type 'quit' to deactivate the program, which may or may not self-destruct ..."
+quit_status = gets.chomp
+  if quit_status == "quit" && name_list.empty? == false
+   puts "???" #need to update this!
+ #break is not working, needs love
+ break if quit_status == "quit" && name_list.empty? == true
+else
+  quit_status = nil
+####needs love^^^#########
+
+puts "Who needs their identity changed?"
   name = gets.chomp.to_str
   name_list << name
-#split letters
   name_letters = name.chars
-    #debugging
-    #p name
-    #p name.chars
-    #p name_list
 #process letters
 name_letters = create_alias (name_letters)
 alias_name = name_letters.join().split.reverse.join(" ")
 name_list << alias_name
+puts "#{name}'s new identity is #{alias_name}."
+end
+end
+
+
+
+    #debugging
+    #p name
+    #p name.chars
+    #p name_list
   #p name_list

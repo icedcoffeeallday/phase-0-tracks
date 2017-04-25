@@ -40,32 +40,7 @@
 #Store each alias-ed name in the array initialized above
 #Print out list of user-entered names followed by alias-ed names.
 
-#methods
-def next_vowel(word)
-  vowels_lower = ['a','e','i','o','u']
-  vowels_upper = vowels_lower.map(&:upcase)
-  updated_vowels = word.map do |char|
-  if vowels_lower.include?(char)
-    vowels_lower.rotate(1)[vowels_lower.index(char)]
-  elsif vowels_upper.include?(char)
-    vowels_upper.rotate(1)[vowels_upper.index(char)]
-  else (char)
-end
-end
-end
-
-def next_consonant(word)
-  consonants_lower = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z']
-  consonants_upper = consonants_lower.map(&:upcase)
-  updated_consonants = word.map do |char|
-  if consonants_lower.include?(char)
-    consonants_lower.rotate(1)[consonants_lower.index(char)]
-  elsif consonants_upper.include?(char)
-    consonants_upper.rotate(1)[consonants_upper.index(char)]
-  else (char)
-end
-end
-end
+#method
 
 def create_alias(word)
   vowels_lower = ['a','e','i','o','u']
@@ -87,8 +62,6 @@ updated_vowels = word.map do |char|
 end
 end
 end
-
-
 
 
 #Initialize array

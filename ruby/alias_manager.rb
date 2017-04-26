@@ -55,9 +55,11 @@ end
 end
 
 
+
 #Initialize hash, variable
 
 name_list ={}
+
 quit_status = 0
 
 
@@ -68,6 +70,7 @@ puts "You're about to engage in espionage 101: digital spy naming ..."
 while quit_status != "quit"
 
 puts "Hit enter to continue, if you dare ... Or type 'quit' to deactivate the program, which may or may not self-destruct ..."
+
   quit_status = gets.chomp
     if quit_status == "quit" && name_list.empty? == false
       puts name_list.each { |k,v| puts "#{k}'s secret identity is #{v}."}
@@ -75,6 +78,7 @@ puts "Hit enter to continue, if you dare ... Or type 'quit' to deactivate the pr
       break
   else
     quit_status = nil
+
 
 puts "Who needs their identity changed?"
   name = gets.chomp.to_str

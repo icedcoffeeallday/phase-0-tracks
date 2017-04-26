@@ -64,7 +64,7 @@ end
 end
 
 
-#Initialize array
+#Initialize array/variable(s)
 name_list =[]
 quit_status = 0
 
@@ -77,7 +77,7 @@ while quit_status != "quit"
 puts "Hit enter to continue, if you dare ... Or type 'quit' to deactivate the program, which may or may not self-destruct ..."
 quit_status = gets.chomp
   if quit_status == "quit" && name_list.empty? == false
-   puts "???" #need to update this!
+   puts "debug" #need to update this!
  #break is not working, needs love
  break if quit_status == "quit" && name_list.empty? == true
 else

@@ -1,17 +1,7 @@
-#challenge asks
-
-#Swapping the first and last name.
-
-#Changing all of the vowels (a, e, i, o, or u) to the next vowel in 'aeiou', and all of the consonants 
-#(everything else besides the vowels) to the next consonant in the alphabet. So 'a' would become 'e', 
-#'u' would become 'a', 
-#and 'd' would become 'f'.
-
-
 #Psuedocode!
 
 #Ask user for input
-#Store user input in an array
+#Store initial user input
 #Split input into distinct words in an array
 #Retrieve
 #Exchange item 0 for item 1 in array
@@ -37,8 +27,9 @@
 #Store alias-ed name as next item in initial array
 #Return alias-ed name, ask user if they want to alias another name
 #Loop through user inputs with methods above
-#Store each alias-ed name in the array initialized above
+#Store each alias-ed name in a hash, with the "real" name as a key
 #Print out list of user-entered names followed by alias-ed names.
+
 
 #method
 
@@ -64,42 +55,38 @@ end
 end
 
 
-#Initialize array/variable(s)
-name_list =[]
+
+#Initialize hash, variable
+
+name_list ={}
+
 quit_status = 0
+
 
 #DRIVER CODE
 
-
-#####this loop needs love#####
 puts "You're about to engage in espionage 101: digital spy naming ..."
+
 while quit_status != "quit"
+
 puts "Hit enter to continue, if you dare ... Or type 'quit' to deactivate the program, which may or may not self-destruct ..."
-quit_status = gets.chomp
-  if quit_status == "quit" && name_list.empty? == false
-   puts "debug" #need to update this!
- #break is not working, needs love
- break if quit_status == "quit" && name_list.empty? == true
-else
-  quit_status = nil
-####needs love^^^#########
+
+  quit_status = gets.chomp
+    if quit_status == "quit" && name_list.empty? == false
+      puts name_list.each { |k,v| puts "#{k}'s secret identity is #{v}."}
+    elsif quit_status == "quit" && name_list.empty? == true
+      break
+  else
+    quit_status = nil
+
 
 puts "Who needs their identity changed?"
   name = gets.chomp.to_str
-  name_list << name
   name_letters = name.chars
-#process letters
-name_letters = create_alias (name_letters)
-alias_name = name_letters.join().split.reverse.join(" ")
-name_list << alias_name
+  name_letters = create_alias (name_letters)
+  alias_name = name_letters.join().split.reverse.join(" ")
+  name_list[name.to_sym] = alias_name
+
 puts "#{name}'s new identity is #{alias_name}."
 end
 end
-
-
-
-    #debugging
-    #p name
-    #p name.chars
-    #p name_list
-  #p name_list

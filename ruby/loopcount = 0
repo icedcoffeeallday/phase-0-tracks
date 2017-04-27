@@ -1,6 +1,0 @@
-loopcount = 0
-fib_array = [0, ]
-
-def fib(num)
-
-while 

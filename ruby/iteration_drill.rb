@@ -15,13 +15,12 @@ end
 
 zombie_print (zombie_apocalypse_supplies)
 
-=end
 
 # 2. In order to keep yourself organized, sort your zombie_apocalypse_supplies
 # in alphabetical order. Do not use any special built-in methods.
 # ----
 
-=begin
+
 
 ####REVISIT####
 def zombie_alpha_sort (arr)
@@ -44,7 +43,6 @@ p sorted_arr
 #end
 end
 
-=end
 
 #zombie_alpha_sort (zombie_apocalypse_supplies)
 
@@ -55,6 +53,11 @@ end
 # For instance: are boots in your list of supplies?
 # ----
 
+
+  
+rescue Exception => e
+  
+end
 def supply_search (arr)
 
 puts "What would you like to check for?"
@@ -86,6 +89,22 @@ supply_search(zombie_apocalypse_supplies)
 # leaving only 5. Do not use any special built-in methods.
 # ----
 
+def jettison_stuff (arr)
+
+lightened_load = []
+
+5.times do |item|
+  lightened_load << arr[item]
+end
+#p arr
+p lightened_load
+
+end
+
+jettison_stuff (zombie_apocalypse_supplies)
+=end
+
+
 # 5. You found another survivor! This means you can combine your supplies.
 # Create a new combined supplies list out of your zombie_apocalypse_supplies
 # and their supplies below. You should get rid of any duplicate items.
@@ -94,6 +113,10 @@ supply_search(zombie_apocalypse_supplies)
 other_survivor_supplies = [ "warm clothes", "rations", "compass", "camp stove",
                             "solar battery", "flashlight"]
 # ----
+
+
+
+
 
 # Hash Drills
 

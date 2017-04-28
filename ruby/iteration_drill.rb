@@ -212,3 +212,9 @@ animal_checker(extinct_animals,"Saiga Antelope")
 # Find the built-in method that helps you accomplish this in the Ruby documentation
 # for Hashes.
 # ----
+
+def remove_animal (hash,animal)
+  hash.assoc(animal)
+end
+
+remove_animal(extinct_animals,"Passenger Pigeon")

@@ -114,7 +114,14 @@ other_survivor_supplies = [ "warm clothes", "rations", "compass", "camp stove",
                             "solar battery", "flashlight"]
 # ----
 
+def combine_forces (arr1, arr2)
+  total = arr1.concat arr2
+  total.uniq!
+  p total
+end
 
+
+combine_forces(other_survivor_supplies, zombie_apocalypse_supplies)
 
 
 

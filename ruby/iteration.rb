@@ -45,7 +45,7 @@ test_arr.delete_if { |word| word == "apple" }
 p test_arr
 
 #iterate and delete based on criteria - hash
-test_hash.delete_if { |k,v| k == "letter_3".to_sym || v == "a" }
+test_hash.delete_if { |k,v| k == :letter_3 || v == "a" }
 p test_hash
 
 #A method that filters a data structure for only items that do satisfy a certain condition
@@ -65,7 +65,8 @@ test_hash.select { |k,v| v < "c"}
 
 #A method that will remove items from a data structure until the condition in 
 #the block evaluates to false, then stops
-test_arr.select { |word| word.chop!.length < 6 }
+test_arr.reject { |k| k < "peach"}
+test_hash.reject { |k, v| v < "b"} 
 
 
 

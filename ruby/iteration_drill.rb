@@ -145,7 +145,7 @@ def print_animals (hash)
 end
 end
 
-print_animals(extinct_animals)
+#print_animals(extinct_animals)
 
 
 # 2. Keep only animals in extinct_animals if they were extinct before
@@ -170,6 +170,15 @@ extinction_sort(extinct_animals)
 # so they accurately reflect what year the animal went extinct.
 # Do not use any special built-in methods.
 # ----
+
+def extinction_adjustment(hash)
+  hash.each do |k,v| 
+    hash[k] = v-3
+  end
+  p hash
+end
+
+extinction_adjustment(extinct_animals)
 
 # 4. You've heard that the following animals might be extinct, but you're not sure.
 # Check if they're included in extinct_animals, one by one:

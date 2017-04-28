@@ -7,9 +7,42 @@ zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
 # printing each item in the array separated by an asterisk
 # ----
 
+=begin
+def zombie_print (arr)
+  puts arr.join (" * ")
+end
+
+zombie_print (zombie_apocalypse_supplies)
+=end
+
 # 2. In order to keep yourself organized, sort your zombie_apocalypse_supplies
 # in alphabetical order. Do not use any special built-in methods.
 # ----
+
+def zombie_alpha_sort (arr)
+count = arr.length 
+arr.each_index do |item1|
+  arr.each_index do |item2|
+    if arr[item1.to_s] < arr[item2.to_s]
+      puts "OK"
+    end
+  end
+puts item
+#puts item[0]
+#puts arr[0] puts word at first position in array
+puts item.index[0]
+
+
+#if arr[item].to_s > arr[item+1].to_s 
+#  arr[item], arr[item+1] = arr[item+1], arr[item]
+#else puts "whoopsie"
+#end
+end
+end
+
+zombie_alpha_sort (zombie_apocalypse_supplies)
+
+
 
 # 3. Create a method to see if a particular item (string) is in the
 # zombie_apocalypse_supplies. Do not use any special built-in methods.

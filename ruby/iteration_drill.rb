@@ -3,44 +3,50 @@
 zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
                               "shotgun", "compass", "CB radio", "batteries"]
 
+=begin
 # 1. Iterate through the zombie_apocalypse_supplies array,
 # printing each item in the array separated by an asterisk
 # ----
 
-=begin
+
 def zombie_print (arr)
   puts arr.join (" * ")
 end
 
 zombie_print (zombie_apocalypse_supplies)
+
 =end
 
 # 2. In order to keep yourself organized, sort your zombie_apocalypse_supplies
 # in alphabetical order. Do not use any special built-in methods.
 # ----
 
+=begin
+
+####REVISIT####
 def zombie_alpha_sort (arr)
 count = arr.length 
-arr.each_index do |item1|
-  arr.each_index do |item2|
-    if arr[item1.to_s] < arr[item2.to_s]
-      puts "OK"
-    end
-  end
-puts item
+sorted_arr = []
+
+until count == 0
+
+end
+p sorted_arr 
+#puts item
 #puts item[0]
 #puts arr[0] puts word at first position in array
-puts item.index[0]
-
+#puts item.index[0]
 
 #if arr[item].to_s > arr[item+1].to_s 
 #  arr[item], arr[item+1] = arr[item+1], arr[item]
 #else puts "whoopsie"
 #end
-end
+#end
 end
 
-zombie_alpha_sort (zombie_apocalypse_supplies)
+=end
+
+#zombie_alpha_sort (zombie_apocalypse_supplies)
 
 
 
@@ -48,6 +54,32 @@ zombie_alpha_sort (zombie_apocalypse_supplies)
 # zombie_apocalypse_supplies. Do not use any special built-in methods.
 # For instance: are boots in your list of supplies?
 # ----
+
+def supply_search (arr)
+
+puts "What would you like to check for?"
+search_item = gets.chomp.to_s
+count = arr.length
+found = ""
+
+  arr.each do |item|
+    if item.downcase == search_item.downcase 
+      found = true
+      break if true
+    end
+  end
+
+  if found == true
+    puts "Yes, you have #{search_item}!"
+  else
+    puts "You're gonna have to go on a raid for that!"
+  end
+end
+
+supply_search(zombie_apocalypse_supplies)
+
+
+
 
 # 4. You can't carry too many things, you've only got room in your pack for 5.
 # Remove items in your zombie_apocalypse_supplies in any way you'd like,

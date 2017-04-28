@@ -188,6 +188,25 @@ extinction_adjustment(extinct_animals)
 # Do not use any special built-in methods.
 # ----
 
+def animal_checker(hash,animal)
+found = false
+hash.each do |k,v|
+  if k.to_s == animal
+    puts "Oh no! #{animal} is on this list. The earth misses you, sweet #{animal}!"
+    found = true
+    break if true
+  end
+end
+if found == false 
+  puts "Whew! #{animal} is not on the list."
+end
+end
+
+animal_checker(extinct_animals,"Andean Cat")
+animal_checker(extinct_animals,"Dodo")
+animal_checker(extinct_animals,"Saiga Antelope")
+
+
 # 5. We just found out that the Passenger Pigeon is actually not extinct!
 # Remove them from extinct_animals and return the key value pair as a two item array.
 # Find the built-in method that helps you accomplish this in the Ruby documentation

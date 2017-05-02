@@ -2,7 +2,7 @@
 
 
 SPECIES --------------------
-Puppies
+Puppy
 
 CHARACTERISTICS --------------------
 Energy level: 10
@@ -19,6 +19,7 @@ Friendly: yes
 
 BEHAVIOR --------------------
 Run
+Bark
 Walk
 Jump
 Eat

@@ -32,6 +32,19 @@ class Santa
     @gender = new_gender
   end
 
+#getter methods
+  def age
+    @age
+  end
+
+  def ethnicity
+    @ethnicity
+  end
+
+  def gender
+    @gender
+  end
+
 
 end
 
@@ -40,5 +53,9 @@ end
 #hoho.eat_milk_and_cookies("oreo")
 
 hoho = Santa.new("test","N/A")
-hoho.get_mad_at("Vixen")
 hoho.get_mad_at("Prancer")
+hoho.gender = "female"
+hoho.celebrate_birthday
+puts "#{hoho.gender} is gender."
+puts "#{hoho.age} is age."
+puts "#{hoho.ethnicity} is ethnicity."

@@ -54,32 +54,32 @@ attr_accessor :reindeer_ranking
 end
 
 #testing for release 0
-#hoho = Santa.new
-#hoho.speak
-#hoho.eat_milk_and_cookies("oreo")
+  #hoho = Santa.new
+  #hoho.speak
+  #hoho.eat_milk_and_cookies("oreo")
 
 #testing for release 1-3
-#hoho = Santa.new("test","N/A")
-#hoho.get_mad_at("Prancer")
-#hoho.gender = "female"
-#hoho.celebrate_birthday
-#puts "#{hoho.gender} is gender."
-#puts "#{hoho.age} is age."
-#puts "#{hoho.ethnicity} is ethnicity."
+  #hoho = Santa.new("test","N/A")
+  #hoho.get_mad_at("Prancer")
+  #hoho.gender = "female"
+  #hoho.celebrate_birthday
+  #puts "#{hoho.gender} is gender."
+  #puts "#{hoho.age} is age."
+  #puts "#{hoho.ethnicity} is ethnicity."
+
+#release 4
 
 example_genders = ["female","male","agender","genderfluid","non-binary","bi-gender","genderqueer","none ya biz", "androgyne", "cis man", "cis woman", "gender questioning", "gender non-conforming", "intersex", "pangender", "trans person", "trans man", "trans woman", "androgynous"]
 example_ethnicities = ["asian/pacific-islander", "black", "latinx", "hispanic", "white", "decline to state", "african-american", "mexican-american", "tajik", "native american", "arab", "mestizo", "scottish", "uyghur", "multi-racial", "unicorn", "yazidi"]
 
+50.times do
 santas = Santa.new(example_genders.sample, example_ethnicities.sample)
-#santas.get_mad_at(santas.reindeer_ranking.sample)
 santas.age = rand(140)
-p santas.gender
-p santas.ethnicity
-p santas.age
-#p santas.reindeer_ranking
+#p santas.gender
+#p santas.ethnicity
+#p santas.age
 puts "This santa is #{santas.ethnicity}, #{santas.gender} and #{santas.age} years old."
-
-
+end
 
 
 

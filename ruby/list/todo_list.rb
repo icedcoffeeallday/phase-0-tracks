@@ -1,3 +1,5 @@
+#Pair programming with Jim Kyle / Andrea Scott
+
 class TodoList
 
 def initialize (array)
@@ -21,6 +23,3 @@ def get_item (num)
 end
 
 end
-
-#test_list = TodoList.new
-#p test_list.get_items (["do the dishes", "mow the lawn"])

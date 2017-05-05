@@ -1,5 +1,10 @@
 class Santa
 
+attr_reader :age
+attr_reader :ethnicity
+attr_accessor :gender
+
+
   def speak
     puts "Ho, ho, ho! Haaaappy holidays!"
   end
@@ -28,23 +33,22 @@ class Santa
   end
 
 #setter method
-  def gender=(new_gender)
-    @gender = new_gender
-  end
+#  def gender=(new_gender)
+#    @gender = new_gender
+#  end
 
 #getter methods
-  def age
-    @age
-  end
+#  def age
+#    @age
+#  end
 
-  def ethnicity
-    @ethnicity
-  end
+#  def ethnicity
+#    @ethnicity
+#  end
 
-  def gender
-    @gender
-  end
-
+#  def gender
+#    @gender
+#  end
 
 end
 

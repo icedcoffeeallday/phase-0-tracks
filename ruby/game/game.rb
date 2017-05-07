@@ -2,9 +2,10 @@ class Game
 
 #access variables
     attr_reader :word
-    attr_reader :game_active
+    attr_accessor :game_active
+    attr_reader :chances
     attr_accessor :guessed_letters #array of letters guessed
-    attr_accessor :counter
+    attr_accessor :guess_counter
     #guess
     #guessed word
     #guess count? only if incremented in different methods
@@ -13,31 +14,39 @@ class Game
 
 #methods
 
-def initialize(word)
-  #user-input word to guess
-  @counter = 0
-  #set game to in progress
+def initialize#(word)
+  @word = word
+  @guess_counter = 0
+  @game_active = true
+#  @chances = word.length * 2
+#input: word entered by first user
+#steps:
+# - saves word in a way that it can be compared with individual letters later
+# - begins the game
+# - sets the number of guesses to the length of the word times 2
+# - initializes the guess counter
+#output: initialized game
 end
 
-#def word_validate(word)
-#end
 
-def guess_validate(arr, letter)
-  if arr.length = 0
-    false
-  else arr.include? (letter)   
-  end
+
+def guess_word(guess_arr,word_arr)
+
+  #input: accepts letter, guess list and word array
+  #steps:
+  # - Compare word array and guess
+  #     - if all match, end game
+  #output: print out word-guess status, string showing user -s for letters they haven't yet correctly guessed.
 end
 
-def guess_store_increment(arr, letter)
-  arr << letter
-  @counter += 1
-end
+end #class end
 
-def guess(letter)
-#store guessed letter in guessed_letters array
-#increment counter if guessed letter is not in guessed letter array
-#compare letter to word array, get letter's index in word array
-#if letter is in word append to correct index position in word array
-#output: word status --> joined guessed word array with _ sted nil
-end
+#driver mcguyver
+
+#game = Game.new
+#p game.guess_validate(["a","b","c"],"a")
+#p game.guess_validate([],"a")
+#p game.guess_store_increment(["a","b","c"],"d")
+#p game.guess_store_increment(["a","b","c"],"r")
+
+#guess validate: move collecting guessed letters to driver code, should just be an array that conditionally increments

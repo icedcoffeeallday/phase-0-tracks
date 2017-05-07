@@ -14,11 +14,11 @@ class Game
 
 #methods
 
-def initialize#(word)
-  @word = word
+def initialize
+  @word = []
   @guess_counter = 0
   @game_active = true
-#  @chances = word.length * 2
+
 #input: word entered by first user
 #steps:
 # - saves word in a way that it can be compared with individual letters later
@@ -28,9 +28,12 @@ def initialize#(word)
 #output: initialized game
 end
 
+def create_word_reference(word)
+  @word = word.split("")
+end
 
 
-def guess_word(guess_arr,word_arr)
+def guess_word(letter,word_arr)
 
   #input: accepts letter, guess list and word array
   #steps:
@@ -43,10 +46,10 @@ end #class end
 
 #driver mcguyver
 
-#game = Game.new
-#p game.guess_validate(["a","b","c"],"a")
-#p game.guess_validate([],"a")
-#p game.guess_store_increment(["a","b","c"],"d")
-#p game.guess_store_increment(["a","b","c"],"r")
 
+
+
+#UI
+#user enters word
+#chances = word.length * 2
 #guess validate: move collecting guessed letters to driver code, should just be an array that conditionally increments

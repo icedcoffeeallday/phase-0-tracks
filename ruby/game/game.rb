@@ -6,6 +6,7 @@ class Game
     attr_reader :chances
     attr_accessor :guessed_letters #array of letters guessed
     attr_accessor :guess_counter
+    attr_accessor :secret_word
     #guess
     #guessed word
     #guess count? only if incremented in different methods
@@ -18,6 +19,7 @@ def initialize
   @word = []
   @guess_counter = 0
   @game_active = true
+  @secret_word = []
 
 #input: word entered by first user
 #steps:
@@ -32,8 +34,12 @@ def create_word_reference(word)
   @word = word.split("")
 end
 
-def create_secret_word
-  secret_word = ["-"*@word.length]
+def create_secret_word (word_array)
+ word_array = @word
+ word_array.length.times do |i|
+    @secret_word.push("-")
+  end
+  @secret_word
 end
 
 
@@ -50,7 +56,10 @@ end #class end
 
 #driver mcguyver
 
-
+game = Game.new
+@word = ["t","e","s","t"]
+p @word.length
+p game.create_secret_word(@word)
 
 
 #UI

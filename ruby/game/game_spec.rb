@@ -7,5 +7,10 @@ it "splits word into array" do
   expect(game.create_word_reference("test")).to eq ["t","e","s","t"]
 end
 
+it "creates hashed word for guessing" do
+  @word = ["t","e","s","t"]
+  expect(game.create_secret_word).to eq ["-","-","-","-"]
+end
+
 end
   

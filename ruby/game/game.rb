@@ -32,9 +32,13 @@ def create_word_reference(word)
   @word = word.split("")
 end
 
+def create_secret_word
+  secret_word = ["-"*@word.length]
+end
 
-def guess_word(letter,word_arr)
 
+def guess_word(letter)
+@word.include? (letter)
   #input: accepts letter, guess list and word array
   #steps:
   # - Compare word array and guess

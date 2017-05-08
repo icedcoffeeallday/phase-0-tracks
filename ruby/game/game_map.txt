@@ -1,0 +1,50 @@
+#start
+user 1 enters word
+
+word validation:
+ - only alphabet characters?
+ 
+    fail validation?
+     - error message
+     - return to word entry
+    pass validation?
+     - proceed to next step
+
+store word
+set guess limit
+ - word length x 2
+
+user 2 guesses letter
+
+guess validation
+ - single letter, only alphabet character?
+ - letter guessed previously?
+
+    fail
+     - conditional error message
+     - no counter increment
+
+    pass
+     - proceed to next step
+
+store letter
+increment counter
+
+is letter in word?
+    yes
+        - congratulate user
+        - word status message: message presenting word in __d__ format
+    no
+        - tell user they were wrong
+        - word status message: message presenting word in __d__ format
+
+does user have any guesses left?
+    yes
+        - keep guessing
+    no
+        - is word correct?
+            - yes
+                + congrats!
+            - no
+                + whoopsie!
+

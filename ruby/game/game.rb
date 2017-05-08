@@ -48,31 +48,47 @@ def guess_word(letter)
     if @word.include? (letter)
         @word.each_index.select {|i| @word[i] == letter}.each do |value|
         @secret_word[value].replace (letter) 
-        puts @secret_word.join
-      end
-    elsif !@word.include? (letter)
-        puts @secret_word.join
-      end
+        end
       return @secret_word
-    end
+end
+end
 
-
-
+def put_outcome(letter)
+    if @word.join == @secret_word.join
+      return "Congrats, you won! The word was #{@secret_word.join}!"
+      @game_active = false  
+    elsif !@word.include? (letter)
+     puts "Sorry, no match. Here's the word as it stands now: #{@secret_word.join}." 
+     @game_active = true
+    elsif @secret_word.include? ("-")
+      puts "Here's your updated word! #{@secret_word.join}"
+      @game_active = true
+  end
+end
 
 end #class end
 
+
 #driver mcguyver
 
-#game = Game.new
+game = Game.new
 
 @word = ["t","e","s","t"]
-p game.create_word_reference("test")
-p game.word.length
-p game.create_secret_word
-p game.guess_word("f")
-p game.guess_word("t")
-p game.guess_word("e")
-p game.guess_word("s")
+game.create_word_reference("test")
+game.word.length
+game.create_secret_word
+
+#p game.guess_word("t")
+#p game.guess_word("f")
+#p game.guess_word("e")
+#p game.guess_word("s")
+
+while game.game_active == true 
+  puts "Guess a letter!"
+  letter = gets.chomp
+  game.guess_word(letter)
+  game.put_outcome(letter)
+end
 
 
 

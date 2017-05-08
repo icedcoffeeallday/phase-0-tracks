@@ -44,40 +44,37 @@ end
 
 
 def guess_word(letter)
-index_values = []
-if @word.include? (letter)
-      index_values << @word.each_index.select {|i| @word[i] == letter}
-      #get the indices of letters in word array that match letter
-    p index_values
-    index_values.each do |value,index|
-      #at each matching index in secret word, insert letter and remove -
-    p @secret_word[value].replace (letter)
-    #p secret_word
-  end
+
+    if @word.include? (letter)
+        @word.each_index.select {|i| @word[i] == letter}.each do |value|
+        @secret_word[value].replace (letter) 
+        puts @secret_word.join
+      end
+    elsif !@word.include? (letter)
+        puts @secret_word.join
+      end
+      return @secret_word
+    end
 
 
-end
-  return @secret_word
-  #input: accepts letter, guess list and word array
-  #steps:
-  # - Compare word array and guess
-  #     - if all match, end game
-  #output: print out word-guess status, string showing user -s for letters they haven't yet correctly guessed.
 
-end
 
 end #class end
 
 #driver mcguyver
 
-game = Game.new
+#game = Game.new
 
-#@word = ["t","e","s","t"]
+@word = ["t","e","s","t"]
 p game.create_word_reference("test")
 p game.word.length
 p game.create_secret_word
+p game.guess_word("f")
 p game.guess_word("t")
 p game.guess_word("e")
+p game.guess_word("s")
+
+
 
 #UI
 #user enters word

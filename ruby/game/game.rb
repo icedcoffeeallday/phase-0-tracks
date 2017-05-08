@@ -1,7 +1,7 @@
 class Game
 
 #access variables
-    attr_reader :word
+    attr_accessor :word
     attr_accessor :game_active
     attr_reader :chances
     attr_accessor :guessed_letters #array of letters guessed
@@ -34,22 +34,36 @@ def create_word_reference(word)
   @word = word.split("")
 end
 
-def create_secret_word (word_array)
- word_array = @word
- word_array.length.times do |i|
+def create_secret_word
+ @word.length.times do
     @secret_word.push("-")
   end
-  @secret_word
+  return @secret_word
 end
 
 
+
 def guess_word(letter)
-@word.include? (letter)
+index_values = []
+if @word.include? (letter)
+      index_values << @word.each_index.select {|i| @word[i] == letter}
+      #get the indices of letters in word array that match letter
+    p index_values
+    index_values.each do |value,index|
+      #at each matching index in secret word, insert letter and remove -
+    p @secret_word[value].replace (letter)
+    #p secret_word
+  end
+
+
+end
+  return @secret_word
   #input: accepts letter, guess list and word array
   #steps:
   # - Compare word array and guess
   #     - if all match, end game
   #output: print out word-guess status, string showing user -s for letters they haven't yet correctly guessed.
+
 end
 
 end #class end
@@ -57,10 +71,13 @@ end #class end
 #driver mcguyver
 
 game = Game.new
-@word = ["t","e","s","t"]
-p @word.length
-p game.create_secret_word(@word)
 
+#@word = ["t","e","s","t"]
+p game.create_word_reference("test")
+p game.word.length
+p game.create_secret_word
+p game.guess_word("t")
+p game.guess_word("e")
 
 #UI
 #user enters word

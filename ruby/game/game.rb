@@ -8,15 +8,9 @@
 class Game
 
 #access variables
-    attr_accessor :word
-    attr_accessor :game_active
+    attr_accessor :word, :game_active, :guessed_letters, :guess_counter, :secret_word
     attr_reader :chances
-    attr_accessor :guessed_letters #array of letters guessed
-    attr_accessor :guess_counter
-    attr_accessor :secret_word
-    #guess
-    #guessed word
-    #guess count? only if incremented in different methods
+
 
 
 
@@ -52,12 +46,15 @@ end
 
 def guess_word(letter)
 
-    if @word.include? (letter)
+    if @word.join == @secret_word.join
+        return "Congrats, you won! The word was #{@secret_word.join}!"
+        @game_active = false  
+    elsif @word.include? (letter)
         @word.each_index.select {|i| @word[i] == letter}.each do |value|
         @secret_word[value].replace (letter) 
-        end
+    end
       return @secret_word
-end
+    end
 end
 
 def put_outcome(letter)
@@ -83,12 +80,13 @@ game = Game.new
 @word = ["t","e","s","t"]
 game.create_word_reference("test")
 game.word.length
-game.create_secret_word
+p game.create_secret_word
 
-#p game.guess_word("t")
-#p game.guess_word("f")
-#p game.guess_word("e")
-#p game.guess_word("s")
+p game.guess_word("t")
+p game.guess_word("f")
+p game.guess_word("e")
+p game.guess_word("s")
+p game.guess_word("t")
 
 while game.game_active == true 
   puts "Guess a letter!"

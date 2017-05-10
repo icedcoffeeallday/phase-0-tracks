@@ -15,9 +15,14 @@ end
 it "compares letter to word and returns word state after guess" do
   game.word = ["t","e","s","t"]
   game.secret_word = ["-","-","-","-"]
-  expect (game.guess_word("t")).to eq ["t","-","-","t"]
+  expect(game.guess_word("t")).to eq ["t","-","-","t"]
 end
-#Getting error undefined method `to' for ["t", "-", "-", "t"]:Array. Will loop back to resolve if I can.
 
+it "saves guessed letters and increments counter for unique guesses" do
+  game.guessed_letters = ["t","e"]
+  game.guess_counter = 1
+  expect(game.save_guessed_letter("s")).to eq ["t","e","s"]
 end
+
+end #describe end
   

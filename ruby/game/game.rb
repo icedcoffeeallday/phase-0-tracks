@@ -52,7 +52,6 @@ def guess_word(letter)
         @secret_word[value].replace (letter)
         if @word.join == @secret_word.join
         @game_active = false 
- #       puts "Congrats, you won! The word was #{@secret_word.join}!"
         else
         @secret_word
         end 
@@ -65,7 +64,7 @@ def save_guessed_letter(letter)
   if !@guessed_letters.include? letter
     @guess_counter += 1
     @guessed_letters << letter
-  p guessed_letters
+  #p guessed_letters
   #save guessed letter and increment if letter has not been guessed before
 end
 
@@ -80,7 +79,7 @@ def put_outcome(letter)
     elsif @secret_word.include? ("-")
      puts "Here's your updated word! #{@secret_word.join}"
   end
-  p guess_counter
+#  p guess_counter
 end
 
 
@@ -88,9 +87,12 @@ end
 end #class end
 
 
+
+
+
 #driver mcguyver
 
-game = Game.new
+#game = Game.new
 
 #@word = ["t","e","s","t"]
 #game.create_word_reference("test")
@@ -111,28 +113,25 @@ game = Game.new
 #  p game.word
 #  p game.secret_word
 
-puts "Player 1, enter a word for Player 2 to guess."
-user_word = gets.chomp
 
-game.create_word_reference(user_word)
-p game.word
-#omitted word length as not using it
-p game.create_secret_word
-while (game.game_active == true && game.guess_counter < game.word.length)
-  puts "Player 2, guess a letter!"
-  letter = gets.chomp
-  game.save_guessed_letter(letter)
-    #if !game.guessed_letters.include? (letter)
-    #game.guess_counter += 1
-  #else
-    game.guess_word(letter)
-    game.put_outcome(letter)
-   p game.guess_counter
 
-  end
+#puts "Player 1, enter a word for Player 2 to guess."
+#user_word = gets.chomp
+
+#game.create_word_reference(user_word)
+#debug p game.word
+#debug p game.create_secret_word
+#while (game.game_active == true && game.guess_counter < game.word.length)
+#  puts "Player 2, guess a letter!"
+#  letter = gets.chomp
+#  game.save_guessed_letter(letter)
+#  game.guess_word(letter)
+# game.put_outcome(letter)
+#  game.guess_counter
+#  end
+#end
+
 end
-
-
 
 #UI
 #user enters word

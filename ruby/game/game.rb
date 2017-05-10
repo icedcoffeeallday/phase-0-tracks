@@ -46,14 +46,17 @@ end
 
 def guess_word(letter)
 
-    if @word.join == @secret_word.join
-        return "Congrats, you won! The word was #{@secret_word.join}!"
-        @game_active = false  
-    elsif @word.include? (letter)
+    if @word.include? (letter)
         @word.each_index.select {|i| @word[i] == letter}.each do |value|
-        @secret_word[value].replace (letter) 
+        @secret_word[value].replace (letter)
+        if @word.join == @secret_word.join
+        @game_active = false 
+        puts "Congrats, you won! The word was #{@secret_word.join}!"
+        else
+        @secret_word
+        end 
     end
-      return @secret_word
+      @secret_word
     end
 end
 
@@ -82,17 +85,26 @@ game.create_word_reference("test")
 game.word.length
 p game.create_secret_word
 
-p game.guess_word("t")
-p game.guess_word("f")
-p game.guess_word("e")
-p game.guess_word("s")
-p game.guess_word("t")
+#p game.guess_word("t")
+#  p game.word
+#  p game.secret_word
+#p game.guess_word("f")
+#p game.guess_word("e")
+#puts "s here"
+#p game.guess_word("s")
+  # p game.word
+ # p game.secret_word
+#puts "final t here"
+#p game.guess_word("t")
+#  p game.word
+#  p game.secret_word
 
-while game.game_active == true 
+while (game.game_active == true && game.guess_counter < game.word.length)
   puts "Guess a letter!"
   letter = gets.chomp
   game.guess_word(letter)
   game.put_outcome(letter)
+  game.guess_counter += 1
 end
 
 

@@ -1,8 +1,4 @@
-### Note: I ran out of time on this challenge. I got very stuck, and could
-# not get it together to complete this code in a way that 1. works, 2. meets expectations,
-# and 3. is in line with the output of the challenge. I am submitting the assignment now
-# in order to complete the week, and will do my best to complete it and resubmit it tomorrow, May 9.
-# :( :( :( :(
+### Update 5/9/17: I ran out of time on this challenge, but am working my way through stuck-ness.
 
 
 class Game
@@ -17,7 +13,7 @@ class Game
 #methods
 
 def initialize
-#  @word = []
+  @word = []
   @guess_counter = 0
   @game_active = true
   @secret_word = []
@@ -90,9 +86,9 @@ end #class end
 
 
 
-#driver mcguyver
+#driver code
 
-#game = Game.new
+game = Game.new
 
 #@word = ["t","e","s","t"]
 #game.create_word_reference("test")
@@ -115,23 +111,23 @@ end #class end
 
 
 
-#puts "Player 1, enter a word for Player 2 to guess."
-#user_word = gets.chomp
+puts "Player 1, enter a word for Player 2 to guess."
+user_word = gets.chomp
 
-#game.create_word_reference(user_word)
+game.create_word_reference(user_word)
 #debug p game.word
-#debug p game.create_secret_word
-#while (game.game_active == true && game.guess_counter < game.word.length)
-#  puts "Player 2, guess a letter!"
-#  letter = gets.chomp
-#  game.save_guessed_letter(letter)
-#  game.guess_word(letter)
-# game.put_outcome(letter)
-#  game.guess_counter
-#  end
-#end
-
+game.create_secret_word
+while (game.game_active == true && game.guess_counter < game.word.length)
+  puts "Player 2, guess a letter!"
+  letter = gets.chomp
+  game.save_guessed_letter(letter)
+  game.guess_word(letter)
+  game.put_outcome(letter)
+  game.guess_counter
+  end
 end
+
+
 
 #UI
 #user enters word

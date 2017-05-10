@@ -9,7 +9,7 @@ class Game
 
 #access variables
     attr_accessor :word, :game_active, :guessed_letters, :guess_counter, :secret_word
-    attr_reader :chances
+
 
 
 
@@ -64,7 +64,7 @@ def save_guessed_letter(letter)
   if !@guessed_letters.include? letter
     @guess_counter += 1
     @guessed_letters << letter
-  #p guessed_letters
+  #  p guessed_letters
   #save guessed letter and increment if letter has not been guessed before
 end
 

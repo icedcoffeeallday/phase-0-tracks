@@ -8,25 +8,20 @@
 class Game
 
 #access variables
-    attr_accessor :word
-    attr_accessor :game_active
-    attr_reader :chances
-    attr_accessor :guessed_letters #array of letters guessed
-    attr_accessor :guess_counter
-    attr_accessor :secret_word
-    #guess
-    #guessed word
-    #guess count? only if incremented in different methods
+    attr_accessor :word, :game_active, :guessed_letters, :guess_counter, :secret_word
+
+
 
 
 
 #methods
 
 def initialize
-  @word = []
+#  @word = []
   @guess_counter = 0
   @game_active = true
   @secret_word = []
+  @guessed_letters = []
 
 #input: word entered by first user
 #steps:
@@ -54,52 +49,90 @@ def guess_word(letter)
 
     if @word.include? (letter)
         @word.each_index.select {|i| @word[i] == letter}.each do |value|
-        @secret_word[value].replace (letter) 
-        end
-      return @secret_word
-end
+        @secret_word[value].replace (letter)
+        if @word.join == @secret_word.join
+        @game_active = false 
+        else
+        @secret_word
+        end 
+    end
+      @secret_word
+    end
+end 
+
+def save_guessed_letter(letter)
+  if !@guessed_letters.include? letter
+    @guess_counter += 1
+    @guessed_letters << letter
+  #  p guessed_letters
+  #save guessed letter and increment if letter has not been guessed before
 end
 
 def put_outcome(letter)
+ 
     if @word.join == @secret_word.join
-      return "Congrats, you won! The word was #{@secret_word.join}!"
-      @game_active = false  
+      puts "Congrats, you won! The word was #{@secret_word.join}!"
+    elsif @guess_counter == word.length
+      puts "You ran out of turns!"
     elsif !@word.include? (letter)
      puts "Sorry, no match. Here's the word as it stands now: #{@secret_word.join}." 
-     @game_active = true
     elsif @secret_word.include? ("-")
-      puts "Here's your updated word! #{@secret_word.join}"
-      @game_active = true
+     puts "Here's your updated word! #{@secret_word.join}"
   end
+#  p guess_counter
 end
+
+
 
 end #class end
 
 
+
+
+
 #driver mcguyver
 
-game = Game.new
+#game = Game.new
 
-@word = ["t","e","s","t"]
-game.create_word_reference("test")
-game.word.length
-game.create_secret_word
+#@word = ["t","e","s","t"]
+#game.create_word_reference("test")
+#game.word.length
+#p game.create_secret_word
 
 #p game.guess_word("t")
+#  p game.word
+#  p game.secret_word
 #p game.guess_word("f")
 #p game.guess_word("e")
+#puts "s here"
 #p game.guess_word("s")
+  # p game.word
+ # p game.secret_word
+#puts "final t here"
+#p game.guess_word("t")
+#  p game.word
+#  p game.secret_word
 
-while game.game_active == true 
-  puts "Guess a letter!"
-  letter = gets.chomp
-  game.guess_word(letter)
-  game.put_outcome(letter)
+
+
+#puts "Player 1, enter a word for Player 2 to guess."
+#user_word = gets.chomp
+
+#game.create_word_reference(user_word)
+#debug p game.word
+#debug p game.create_secret_word
+#while (game.game_active == true && game.guess_counter < game.word.length)
+#  puts "Player 2, guess a letter!"
+#  letter = gets.chomp
+#  game.save_guessed_letter(letter)
+#  game.guess_word(letter)
+# game.put_outcome(letter)
+#  game.guess_counter
+#  end
+#end
+
 end
-
-
 
 #UI
 #user enters word
-#chances = word.length * 2
 #guess validate: move collecting guessed letters to driver code, should just be an array that conditionally increments

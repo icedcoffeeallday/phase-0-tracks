@@ -17,10 +17,11 @@ class Game
 #methods
 
 def initialize
-  @word = []
+#  @word = []
   @guess_counter = 0
   @game_active = true
   @secret_word = []
+  @guessed_letters = []
 
 #input: word entered by first user
 #steps:
@@ -58,20 +59,26 @@ def guess_word(letter)
     end
       @secret_word
     end
+end 
+
+def save_guessed_letter(letter)
+  @guessed_letters << letter
+  p guessed_letters
 end
 
 def put_outcome(letter)
-    if @word.join == @secret_word.join
-      return "Congrats, you won! The word was #{@secret_word.join}!"
-      @game_active = false  
-    elsif !@word.include? (letter)
+ 
+    if !@word.include? (letter)
      puts "Sorry, no match. Here's the word as it stands now: #{@secret_word.join}." 
-     @game_active = true
+    elsif @guess_counter == word.length
+      puts "You ran out of turns!"
     elsif @secret_word.include? ("-")
-      puts "Here's your updated word! #{@secret_word.join}"
-      @game_active = true
+     puts "Here's your updated word! #{@secret_word.join}"
   end
+  p guess_counter
 end
+
+
 
 end #class end
 
@@ -80,10 +87,10 @@ end #class end
 
 game = Game.new
 
-@word = ["t","e","s","t"]
-game.create_word_reference("test")
-game.word.length
-p game.create_secret_word
+#@word = ["t","e","s","t"]
+#game.create_word_reference("test")
+#game.word.length
+#p game.create_secret_word
 
 #p game.guess_word("t")
 #  p game.word
@@ -99,17 +106,27 @@ p game.create_secret_word
 #  p game.word
 #  p game.secret_word
 
+puts "Player 1, enter a word for Player 2 to guess."
+user_word = gets.chomp
+
+game.create_word_reference(user_word)
+p game.word
+#omitted word length as not using it
+# game.create_secret_word
 while (game.game_active == true && game.guess_counter < game.word.length)
-  puts "Guess a letter!"
+  puts "Player 2, guess a letter!"
   letter = gets.chomp
+  game.save_guessed_letter(letter)
+    if !game.guessed_letters.include? (letter)
+    game.guess_counter += 1
   game.guess_word(letter)
   game.put_outcome(letter)
-  game.guess_counter += 1
+
+  end
 end
 
 
 
 #UI
 #user enters word
-#chances = word.length * 2
 #guess validate: move collecting guessed letters to driver code, should just be an array that conditionally increments

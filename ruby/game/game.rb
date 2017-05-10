@@ -1,8 +1,4 @@
-### Note: I ran out of time on this challenge. I got very stuck, and could
-# not get it together to complete this code in a way that 1. works, 2. meets expectations,
-# and 3. is in line with the output of the challenge. I am submitting the assignment now
-# in order to complete the week, and will do my best to complete it and resubmit it tomorrow, May 9.
-# :( :( :( :(
+### Update 5/9/17: I ran out of time on this challenge, but am working my way through stuck-ness.
 
 
 class Game

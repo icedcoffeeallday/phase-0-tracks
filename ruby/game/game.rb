@@ -52,7 +52,7 @@ def guess_word(letter)
         @secret_word[value].replace (letter)
         if @word.join == @secret_word.join
         @game_active = false 
-        puts "Congrats, you won! The word was #{@secret_word.join}!"
+ #       puts "Congrats, you won! The word was #{@secret_word.join}!"
         else
         @secret_word
         end 
@@ -62,16 +62,21 @@ def guess_word(letter)
 end 
 
 def save_guessed_letter(letter)
-  @guessed_letters << letter
+  if !@guessed_letters.include? letter
+    @guess_counter += 1
+    @guessed_letters << letter
   p guessed_letters
+  #save guessed letter and increment if letter has not been guessed before
 end
 
 def put_outcome(letter)
  
-    if !@word.include? (letter)
-     puts "Sorry, no match. Here's the word as it stands now: #{@secret_word.join}." 
+    if @word.join == @secret_word.join
+      puts "Congrats, you won! The word was #{@secret_word.join}!"
     elsif @guess_counter == word.length
       puts "You ran out of turns!"
+    elsif !@word.include? (letter)
+     puts "Sorry, no match. Here's the word as it stands now: #{@secret_word.join}." 
     elsif @secret_word.include? ("-")
      puts "Here's your updated word! #{@secret_word.join}"
   end
@@ -112,15 +117,17 @@ user_word = gets.chomp
 game.create_word_reference(user_word)
 p game.word
 #omitted word length as not using it
-# game.create_secret_word
+p game.create_secret_word
 while (game.game_active == true && game.guess_counter < game.word.length)
   puts "Player 2, guess a letter!"
   letter = gets.chomp
   game.save_guessed_letter(letter)
-    if !game.guessed_letters.include? (letter)
-    game.guess_counter += 1
-  game.guess_word(letter)
-  game.put_outcome(letter)
+    #if !game.guessed_letters.include? (letter)
+    #game.guess_counter += 1
+  #else
+    game.guess_word(letter)
+    game.put_outcome(letter)
+   p game.guess_counter
 
   end
 end

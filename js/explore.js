@@ -6,11 +6,14 @@
 //Return reversed word as a string.
 
 var word = "";
+var NewWord = "";
 
 function ReverseString(word) {
-for (var i = 0; i < word.length; i++) {
-  word = word + word[i]; 
-  console.log(NewWord);
+
+for (var i = word.length - 1; i >= 0; i--) {
+  NewWord = NewWord + word[i]; 
 }
+return NewWord;
 }
-ReverseString("word")
+console.log(ReverseString("hello"))
+

@@ -7,6 +7,7 @@
 
 var word = "";
 var NewWord = "";
+var test = "";
 
 function ReverseString(word) {
 
@@ -15,5 +16,15 @@ for (var i = word.length - 1; i >= 0; i--) {
 }
 return NewWord;
 }
-console.log(ReverseString("hello"))
 
+//test = ReverseString("hello")
+//console.log(test)
+
+word = "california"
+
+if (word.length > 5) {  
+  console.log(ReverseString(word))
+}
+else {
+  console.log("Whoopsie!")
+}

@@ -4,18 +4,22 @@
 # We spent [#] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
-#
+# File pathway to state data database, which is required for the program to have any meaning.
+# Require: pass string, queries Ruby Gems library and, if return is true, provides functionality from requested gem.
+
 require_relative 'state_data'
+
 
 class VirusPredictor
 
+#initialize: initializes new instance of class; sets local variables based on arguments
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
 
+#virus_effects: wrapper method that calls methods below, sets variables with local values
   def virus_effects
     predicted_deaths(@population_density, @population, @state)
     speed_of_spread(@population_density, @state)
@@ -23,6 +27,7 @@ class VirusPredictor
 
   private
 
+#predicted_deaths: returns number of deaths based on population density and percent of population. Floor rounds down to nearest whole number.
   def predicted_deaths(population_density, population, state)
     # predicted deaths is solely based on population density
     if @population_density >= 200
@@ -41,6 +46,7 @@ class VirusPredictor
 
   end
 
+#speed_of_spread: returns number of months that it will take for virus to spread, based on population density value.
   def speed_of_spread(population_density, state) #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
@@ -70,18 +76,28 @@ end
  # initialize VirusPredictor for each state
 
 
-alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
-alabama.virus_effects
+# alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
+# alabama.virus_effects
 
-jersey = VirusPredictor.new("New Jersey", STATE_DATA["New Jersey"][:population_density], STATE_DATA["New Jersey"][:population])
-jersey.virus_effects
+# jersey = VirusPredictor.new("New Jersey", STATE_DATA["New Jersey"][:population_density], STATE_DATA["New Jersey"][:population])
+# jersey.virus_effects
 
-california = VirusPredictor.new("California", STATE_DATA["California"][:population_density], STATE_DATA["California"][:population])
-california.virus_effects
+# california = VirusPredictor.new("California", STATE_DATA["California"][:population_density], STATE_DATA["California"][:population])
+# california.virus_effects
 
-alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
-alaska.virus_effects
+# alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
+# alaska.virus_effects
 
+#Driver for all 50 states
+#input: virus predictor class, plus state data constant
+#steps: for each state, calculate the virus effects based on the state's population and population density
+#output: each state's virus prediction on its own line of text
 
+STATE_DATA.each do |state_name,population_data|
+  state = VirusPredictor.new(state_name,population_data[:population_density],population_data[:population_density])
+  state.virus_effects
+end 
+
+#p STATE_DATA["Alabama"]
 #=======================================================================
 # Reflection Section

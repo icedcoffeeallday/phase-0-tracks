@@ -1,5 +1,7 @@
 #population density is number of people per square mile as of 2012
 #this data is updated every year with estimates from a 10 year census
+#all caps = constant variable, don't want program to modify this data
+#scope: where it's required, that's the scope that will be granted. State Data is a global scope (see require_relative in solution file.)
 
 
 STATE_DATA = {

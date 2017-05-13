@@ -21,14 +21,14 @@ class VirusPredictor
 
 #virus_effects: wrapper method that calls methods below, sets variables with local values
   def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    predicted_deaths#(@population_density, @population, @state)
+    speed_of_spread#(@population_density, @state)
   end
 
   private
 
 #predicted_deaths: returns number of deaths based on population density and percent of population. Floor rounds down to nearest whole number.
-  def predicted_deaths(population_density, population, state)
+  def predicted_deaths #(population_density, population, state)
     # predicted deaths is solely based on population density
     if @population_density >= 200
       number_of_deaths = (@population * 0.4).floor
@@ -47,7 +47,7 @@ class VirusPredictor
   end
 
 #speed_of_spread: returns number of months that it will take for virus to spread, based on population density value.
-  def speed_of_spread(population_density, state) #in months
+  def speed_of_spread #(population_density, state) #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
@@ -98,6 +98,6 @@ STATE_DATA.each do |state_name,population_data|
   state.virus_effects
 end 
 
-#p STATE_DATA["Alabama"]
+
 #=======================================================================
 # Reflection Section

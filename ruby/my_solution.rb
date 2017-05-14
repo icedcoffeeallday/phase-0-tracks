@@ -30,15 +30,15 @@ class VirusPredictor
 #predicted_deaths: returns number of deaths based on population density and percent of population. Floor rounds down to nearest whole number.
   def predicted_deaths #(population_density, population, state)
     # predicted deaths is solely based on population density
-    if @population_density >= 200
+    case when @population_density >= 200
       number_of_deaths = (@population * 0.4).floor
-    elsif @population_density >= 150
+    when @population_density >= 150
       number_of_deaths = (@population * 0.3).floor
-    elsif @population_density >= 100
+    when @population_density >= 100
       number_of_deaths = (@population * 0.2).floor
-    elsif @population_density >= 50
+    when @population_density >= 50
       number_of_deaths = (@population * 0.1).floor
-    else
+    when
       number_of_deaths = (@population * 0.05).floor
     end
 
@@ -52,15 +52,15 @@ class VirusPredictor
     # by additional factors we haven't added into this functionality.
     speed = 0.0
 
-    if @population_density >= 200
+    case when @population_density >= 200
       speed += 0.5
-    elsif @population_density >= 150
+    when @population_density >= 150
       speed += 1
-    elsif @population_density >= 100
+    when @population_density >= 100
       speed += 1.5
-    elsif @population_density >= 50
+    when @population_density >= 50
       speed += 2
-    else
+    when
       speed += 2.5
     end
 
@@ -94,10 +94,26 @@ end
 #output: each state's virus prediction on its own line of text
 
 STATE_DATA.each do |state_name,population_data|
-  state = VirusPredictor.new(state_name,population_data[:population_density],population_data[:population_density])
+  state = VirusPredictor.new(state_name,population_data[:population_density],population_data[:population])
   state.virus_effects
 end 
 
 
 #=======================================================================
 # Reflection Section
+
+# What are the differences between the two different hash syntaxes shown in the state_data file?
+#The inner hash (population and population density) uses the simple hash syntax, with a symbol as a key. The outer or "hashy hash" uses an implicit hash format, where the key is a string.
+
+# What does require_relative do? How is it different from require?
+#Require_relative is a filepathway to a required file (like source code) in the same directory. Require queries the Ruby Gems library and returns true/false; if the requested gem is found, then its functionality is available in the code.
+
+# What are some ways to iterate through a hash?
+#.each, .map
+
+# When refactoring virus_effects, what stood out to you about the variables, if anything?
+# Because the variables are instance variables that are declared when the class is initialized, it was unnecessary to pass them as arguments to the wrapper method, or to the individual methods.
+
+# What concept did you most solidify in this challenge?
+# Iterating through and accessing information in hashes.
+

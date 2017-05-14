@@ -4,19 +4,29 @@
 //inputs: list of phrases (strings)
 //steps: 
 // - loop through list
-// - return length of each index
-// - find the index value with the greatest length
-// - return the value from that index
+// - compare the length of each phrase to the other phrases
+// - return the longest word or phrase from the list
 //output: the longest phrase from the list of phrases
 
 var phrase_list = ["long phrase","longest phrase","longer phrase"];
-var length_array = [];
-var length_location = "";
+var longest_phrase = "";
 
-for ( i = 0; i < phrase_list.length; i++) {  
-  console.log(phrase_list[i]);
-  console.log(phrase_list[i].length);
-  length_array.push(phrase_list[i].length);
-  console.log(length_array);
-  length_location = indexOf()//paused here, this isn't complete
-}
+function FindLongestPhrase(phrase_list) {
+    for ( i = 0; i < phrase_list.length; i++) {  
+      if (phrase_list[i].length > longest_phrase.length) {
+        longest_phrase = phrase_list[i];
+        }
+      }
+    console.log(longest_phrase)
+    }
+
+
+
+
+
+
+
+//------------------Driver Code-----------------------//
+
+//Release 0: Find Longest Phrase
+FindLongestPhrase(phrase_list)

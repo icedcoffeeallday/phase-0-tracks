@@ -57,8 +57,37 @@
 
 
 //Release 2: Generate random test data
+//Pseudocode:
+//inputs: integer
+//steps:
+//  - accept integer argument
+//  - generates that number of words by randomly selecting alpha characters and joining them
+//  - word have minimum of 1 letter and a maximum of 10 letters
+//  - puts words into array
+//output: a number of random alpha character "words" in an array; number is set by the integer input.
+
+      var randomNumber = Math.floor(Math.random() * 11);
+      var randomLetterFinder = Math.floor(Math.random() * 27);
+      var letters = "abcdefghijklmnopqrstuvwxyz" ;
+      var letterArray = letters.split('');
+      var word = "";
+      var wordGroup = [] ;
 
 
+    function RandomWordArray(int){
+
+      for (i = 0; i <= int; i++) {
+        for ( i = 0; i < randomNumber; i++ ) {
+          word += letterArray[randomLetterFinder]
+          word += letterArray[randomLetterFinder]
+          console.log(word);
+        }
+        wordGroup.push(word);
+      }
+      console.log(wordGroup);
+    }
+//Inner loop to randomly generate words is only selecting a single letter, not iterating through array to select multiple different letters.
+//Sometimes loop goes crazy and doesn't stop.
 
 
 
@@ -69,3 +98,6 @@ FindLongestPhrase(phrase_list)
 
 //Release 1: Compare key/value pairs
 console.log(KeyMatch(Steven,Tamir))
+
+//Release 2: Random word array
+RandomWordArray(2)

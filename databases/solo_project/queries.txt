@@ -49,3 +49,62 @@ DELETE FROM characters WHERE character_name="Pangborn";
 
 ##Result
 None, record removed successfully
+
+###########
+
+##JOINS
+
+SELECT campaigns.name, characters.character_name, characters.strength
+FROM campaigns
+LEFT JOIN characters ON campaigns.id = characters.campaign_id;
+
+Orelight|Hem|14
+Orelight|Rowan|10
+Orelight|Zep|20
+Storming Gilead|Baladorn|5
+Storming Gilead|Gareth|15
+The Dorkening|Gaulauria|6
+The Dorkening|Zeeble|18
+
+###########
+
+SELECT characters.character_name, campaigns.start_date
+FROM characters
+LEFT JOIN campaigns ON characters.campaign_id = campaigns.id;
+
+Rowan|5/25/17
+Zep|5/25/17
+Hem|5/25/17
+Baladorn|3/1/17
+Gareth|3/1/17
+Gaulauria|2/1/17
+Zeeble|2/1/17
+Belugah|
+Granthairne|
+Rezutha|
+
+###########
+
+SELECT characters.character_name, campaigns.start_date
+FROM characters
+INNER JOIN campaigns ON characters.campaign_id = campaigns.id;
+
+Rowan|5/25/17
+Zep|5/25/17
+Hem|5/25/17
+Baladorn|3/1/17
+Gareth|3/1/17
+Gaulauria|2/1/17
+Zeeble|2/1/17
+
+###########
+
+SELECT campaigns.name, characters.character_name, characters.charisma
+FROM characters 
+INNER JOIN campaigns ON characters.campaign_id = campaigns.id 
+WHERE characters.charisma >= 10;
+
+Orelight|Rowan|13
+Orelight|Zep|15
+Storming Gilead|Baladorn|15
+The Dorkening|Gaulauria|12

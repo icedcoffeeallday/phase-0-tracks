@@ -1,0 +1,110 @@
+Run a SQL query for each of the following:
+
+1. Display the information in one table (either table is fine).
+SELECT * FROM campaigns;
+
+##Result
+1|5/25/17|8/25/17|Orelight|Tyler Georg
+2|3/1/17|9/1/17|Storming Gilead|Martin Thorne
+3|2/1/17|2/4/17|The Dorkening|Sean Speer
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+
+UPDATE characters SET class="Paladin" where character_name="Hem";
+
+##Result
+None, record updated successfully
+
+3. Display the information in both tables using one query.
+SELECT * FROM campaigns, characters WHERE characters.campaign_id = campaigns.id;
+
+##Result
+
+1|5/25/17|8/25/17|Orelight|Tyler Georg|1|Rowan|Dragonborn|Sorceror|7|10|3|12|11|12|13|1
+1|5/25/17|8/25/17|Orelight|Tyler Georg|2|Zep|Other|Elemental|19|20|12|18|19|10|15|1
+1|5/25/17|8/25/17|Orelight|Tyler Georg|3|Hem|Human|Paladin|12|14|15|18|5|3|5|1
+2|3/1/17|9/1/17|Storming Gilead|Martin Thorne|4|Pangborn|Dwarf|Paladin|11|16|14|18|10|3|14|2
+2|3/1/17|9/1/17|Storming Gilead|Martin Thorne|5|Baladorn|Halfling|Wizard|10|5|12|8|12|13|15|2
+2|3/1/17|9/1/17|Storming Gilead|Martin Thorne|6|Gareth|Half-Elf|Rogue|11|15|15|13|8|5|9|2
+3|2/1/17|2/4/17|The Dorkening|Sean Speer|7|Gaulauria|Elf|Monk|10|6|9|8|10|15|12|3
+3|2/1/17|2/4/17|The Dorkening|Sean Speer|8|Zeeble|Half-Orc|Fighter|9|18|17|18|4|5|3|3
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+SELECT campaigns.name,characters.character_name, characters.race, characters.class FROM characters JOIN campaigns ON campaigns.id = characters.campaign_id;
+
+##Result
+Orelight|Rowan|Dragonborn|Sorceror
+Orelight|Zep|Other|Elemental
+Orelight|Hem|Human|Barbarian
+Storming Gilead|Pangborn|Dwarf|Paladin
+Storming Gilead|Baladorn|Halfling|Wizard
+Storming Gilead|Gareth|Half-Elf|Rogue
+The Dorkening|Gaulauria|Elf|Monk
+The Dorkening|Zeeble|Half-Orc|Fighter
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+
+DELETE FROM characters WHERE character_name="Pangborn";
+
+##Result
+None, record removed successfully
+
+###########
+
+##JOINS
+
+SELECT campaigns.name, characters.character_name, characters.strength
+FROM campaigns
+LEFT JOIN characters ON campaigns.id = characters.campaign_id;
+
+Orelight|Hem|14
+Orelight|Rowan|10
+Orelight|Zep|20
+Storming Gilead|Baladorn|5
+Storming Gilead|Gareth|15
+The Dorkening|Gaulauria|6
+The Dorkening|Zeeble|18
+
+###########
+
+SELECT characters.character_name, campaigns.start_date
+FROM characters
+LEFT JOIN campaigns ON characters.campaign_id = campaigns.id;
+
+Rowan|5/25/17
+Zep|5/25/17
+Hem|5/25/17
+Baladorn|3/1/17
+Gareth|3/1/17
+Gaulauria|2/1/17
+Zeeble|2/1/17
+Belugah|
+Granthairne|
+Rezutha|
+
+###########
+
+SELECT characters.character_name, campaigns.start_date
+FROM characters
+INNER JOIN campaigns ON characters.campaign_id = campaigns.id;
+
+Rowan|5/25/17
+Zep|5/25/17
+Hem|5/25/17
+Baladorn|3/1/17
+Gareth|3/1/17
+Gaulauria|2/1/17
+Zeeble|2/1/17
+
+###########
+
+SELECT campaigns.name, characters.character_name, characters.charisma
+FROM characters 
+INNER JOIN campaigns ON characters.campaign_id = campaigns.id 
+WHERE characters.charisma >= 10;
+
+Orelight|Rowan|13
+Orelight|Zep|15
+Storming Gilead|Baladorn|15
+The Dorkening|Gaulauria|12

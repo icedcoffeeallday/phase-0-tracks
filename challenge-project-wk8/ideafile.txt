@@ -1,0 +1,16 @@
+#Costper Epic
+#As a:
+Person who wants to understand how much value I get out of the things I use
+#I want:
+Something that shows me how much each use of an item costs
+#So that:
+I can see cost-per-use calculated (and be inspired when it goes down!)
+
+#Back story
+Hi, I'm Andrea. I have a confession to make: I live in San Francisco, and my beloved gym membership is hideously, hideously expensive.
+
+I've spent thousands of dollars on fitness facilities, new kicks, stretchy pants and special equipment. I've maxed out my heart rate in spin, I've done bootcamps in the park, I've attempted to transmute my abs and buns into steel. I've also made every excuse in the book to skip the gym (last week's best one was "can't go, it's Taco Tuesday at work!"), and that often feels like the equivalent of grabbing a perfectly good pile of money and setting it alight (not to mention the incidental cost of skipping an opportunity for exercise, but that's another story).
+
+So, I started thinking about what pushes me past my excuses. It turns out, seeing costs (ahem, appear to) go down and value rise has a direct correlation to "worth it!" in my little brain, and the idea of Costper was born.
+
+The application is simple: enter the name and cost of an item (it doesn't have to be THE MOST EXPENSIVE GYM IN CALIFORNIA, ANDREA), an optional cost duration (great for monthly memberships, or select "none" for fancy shoes), then log when you use the item. As your uses accumulate, watch your cost-per decrease and -- if you're like me -- summon your motivation to make that cost-per *even lower*. Trust me, you'll feel way better about Taco Tuesday afterwards.

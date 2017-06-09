@@ -12,11 +12,16 @@
     #cost_per_use
     #duration_start_date
 
-#Add item
+#Create database if don't already exist
 
-#Add duration
+#Add tables
 
-#Edit item
+#Add item(item_name,item_total_cost,use_duration)
+  #Accepts: item name, item cost, use duration
+  #Creates rows in item database with name, cost, and use
+  #Output:
+
+#If time: Edit item name (item_id)
 
 #Edit duration
 
@@ -30,4 +35,8 @@
 
 #Calculate Cost Per Use
 
-#Output
+#Output: display item added
+
+#Output: display item's cost per use
+
+#Navigation: Ask user what they want to do

@@ -76,7 +76,7 @@ end #class end
 
 your_costper = Costper.new
 
-#create items table
+#create table fancy strings
 create_table_items = <<-SQL
   CREATE TABLE IF NOT EXISTS items(
     id INTEGER PRIMARY KEY,
@@ -85,15 +85,15 @@ create_table_items = <<-SQL
   );
   SQL
 
-# create_table_uses = <<-ZZZ
-#   CREATE TABLE IF NOT EXISTS uses(
-#     id INTEGER PRIMARY KEY,
-#     use_date DATE,
-#     item_id INT,
-#     FOREIGN KEY (item_id) REFERENCES items(id)
-#   )
-#   ZZZ
+create_table_uses = <<-ZZZ
+  CREATE TABLE IF NOT EXISTS uses(
+    id INTEGER PRIMARY KEY,
+    use_date DATE,
+    item_id INT,
+    FOREIGN KEY (item_id) REFERENCES items(id)
+  )
+  ZZZ
 
-#table creation code
-  db.execute(create_table_items)
-  # db.execute(create_table_uses)
+#call table creation
+  your_costper.db.execute(create_table_items)
+  your_costper.db.execute(create_table_uses)

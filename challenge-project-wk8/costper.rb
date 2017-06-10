@@ -30,6 +30,7 @@ def show_main_menu
   puts "1. View all your items, uses, and Costpers"
   puts "2. Add an item"
   puts "3. Log use of an item"
+    #calls item display, then responds to menu call to log item
 end
 
 #Method to add item(item_name,item_total_cost)
@@ -41,10 +42,15 @@ def add_item(name,price)
   db.execute("INSERT INTO items (name,price) VALUES (?,?)", [name,price])
 end
 
-#Method to display all items with IDs
+#Method to display all items with IDs and prices
   #Accepts: nothing
   #Calls method to show list of items prefaced by Ids
   #Output: nil, will just be list
+
+def display_items
+  items = db.execute("Select id, name, price from items")
+  items.each {|item| puts "#{item['id']}  |  #{item['name']}  |  $#{item['price']}"}
+end
 
 #Validation method for integers(entry)
   #Accepts gets.chomp entry
@@ -101,4 +107,5 @@ create_table_uses = <<-ZZZ
 
 #-----------------Test Code---------------------#
 
-your_costper.add_item("Louboutins",945)
+#your_costper.add_item("Louboutins",945)
+your_costper.display_items

@@ -6,37 +6,89 @@
 #Initialize
   #Instance variables
     #item_name
-    #use_duration
+    #item_id
     #item_total_cost
     #uses
     #cost_per_use
     #duration_start_date
 
-#Create database if don't already exist
 
-#Add tables
+#----------MVP methods
 
-#Add item(item_name,item_total_cost,use_duration)
-  #Accepts: item name, item cost, use duration
+#Method to show menu of options
+  #Accepts: nothing
+  #Calls method to show menu of options
+  #Shows menu of options:
+    #1. View all items, uses and costpers
+    #2. Add an item
+    #3. Log use of an item
+
+#Method to add item(item_name,item_total_cost)
+  #Accepts: item name, item cost
   #Creates rows in item database with name, cost, and use
-  #Output:
+  #Output: true?
 
-#If time: Edit item name (item_id)
+#Method to display all items with IDs
+  #Accepts: nothing
+  #Calls method to show list of items prefaced by Ids
+  #Output: nil, will just be list
 
-#Edit duration
+#Validation method for integers(entry)
+  #Accepts gets.chomp entry
+  #Queries whether it's an integer
+  #If true, returns true
+  #If no, return false and put error message
 
-#Remove item
+#Method to log single use of an item(item_id)
+  #Accepts: item id
+  #Creates record in use table logging use against item id
 
-#Calculate End Date (use_duration,duration_start_date)
+#Method to Calculate Cost Per Use
+  #Accepts: item id
+  #Queries item table for cost, queries use table for number of records where item_id = provided item id
+  #Divides cost by sum of records returned above
+  #Writes cost-per-use to item db cost-per-use field
+  #Returns field value of cost-per-use
+  #Note: Want single method that can be called in loop
 
-#Log use
+#Method to display all items with cost per use
+  #Accepts: nothing
+  #Queries items table
+  #Prints item ID, total cost, cost per use
+  #Returns nil
 
-#Delete use
+#-----------Nice-to-have methods
 
-#Calculate Cost Per Use
+#Method to display a single item's cost per use
 
-#Output: display item added
+#Method to display an item added
 
-#Output: display item's cost per use
+#Method to calculate End Date (use_duration,duration_start_date)
 
-#Navigation: Ask user what they want to do
+#Method to edit an item name (item_id, updated_item_name)
+  #Accepts: item id, updated item name (user process: see list of items w/ ID, enter ID, enter new name)
+  #Queries table for item with id match, updates name
+  #Output: true?
+
+#Method to edit an item's duration(item_id, duration)
+  #Accepts: item id, updated duration (user process: see list of items w/ ID, enter ID, enter new duration)
+  #Queries table for item with id match, updates duration
+
+#Method to remove item
+
+#Method to remove a use record
+
+
+#------------Driver code! 
+
+#Create database if doesn't already exist
+
+#Add tables if they don't already exist
+
+#------------User interface
+
+#Welcome + premise + CTA to add item
+
+#Ask for item name
+
+#Ask for duration, present options

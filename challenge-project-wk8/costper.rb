@@ -52,15 +52,11 @@ def display_items
   items.each {|item| puts "#{item['id']}  |  #{item['name']}  |  $#{item['price']}"}
 end
 
-#Validation method for integers(entry)
-  #Accepts gets.chomp entry
-  #Queries whether it's an integer
-  #If true, returns true
-  #If no, return false and put error message
-
 #Method to log single use of an item(item_id)
   #Accepts: item id
   #Creates record in use table logging use against item id
+
+def log_item_use(id)
 
 #Method to Calculate Cost Per Use
   #Accepts: item id
@@ -75,6 +71,12 @@ end
   #Queries items table
   #Prints item ID, total cost, cost per use
   #Returns nil
+
+#Validation method for integers(entry)
+  #Accepts gets.chomp entry
+  #Queries whether it's an integer
+  #If true, returns true
+  #If no, return false and put error message
 
 end #class end
 

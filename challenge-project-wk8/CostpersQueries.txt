@@ -1,0 +1,17 @@
+#REFERENCE: tables pragma: items
+0|id|INTEGER|0||1
+1|name|VARCHAR(255)|0||0
+2|price|INT|0||0
+
+#REFERENCE: tables pragma: uses
+0|id|INTEGER|0||1
+1|use_date|DATE|0||0
+2|item_id|INT|0||0
+
+
+#Insert item
+INSERT INTO items (name,price) VALUES (?,?)", [name,cost]
+
+#Return items
+
+

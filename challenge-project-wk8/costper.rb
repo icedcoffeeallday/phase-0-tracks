@@ -26,7 +26,7 @@ end
     #2. Add an item
     #3. Log use of an item
 
-def show_menu
+def show_main_menu
   puts "1. View all your items, uses, and Costpers"
   puts "2. Add an item"
   puts "3. Log use of an item"
@@ -38,6 +38,7 @@ end
   #Output: true?
 
 def add_item(name,price)
+  db.execute("INSERT INTO items (name,price) VALUES (?,?)", [name,price])
 end
 
 #Method to display all items with IDs
@@ -97,3 +98,7 @@ create_table_uses = <<-ZZZ
 #call table creation
   your_costper.db.execute(create_table_items)
   your_costper.db.execute(create_table_uses)
+
+#-----------------Test Code---------------------#
+
+your_costper.add_item("Louboutins",945)

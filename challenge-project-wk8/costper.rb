@@ -1,17 +1,99 @@
-#-----------------Methods---------------------#
+#-----------------Require Things---------------------#
+require 'sqlite3'
 
-#reader:
-#end_date
+#-----------------MVP Methods---------------------#
 
-def Initialize
-  @item_name = ""
-  @item_total_cost = 0
-  @item_id = 0 #does this end up being a query against table?
-  @uses = 0
-  @cost_per_use = 0
-  @duration_start_date = ""
+class Costper
+  attr_reader :db
+
+def initialize
+  @item_name = nil
+  @item_total_cost = nil
+  @item_id = nil #does this end up being a query against table?
+  @uses = nil
+  @cost_per_use = nil
+  @duration_start_date = nil
+  @db = SQLite3::Database.new("costpers.db")
+  db.results_as_hash = true
 end
 
 
+#Method to show menu of options
+  #Accepts: nothing
+  #Calls method to show menu of options
+  #Shows menu of options:
+    #1. View all items, uses and costpers
+    #2. Add an item
+    #3. Log use of an item
+
+def show_menu
+  puts "1. View all your items, uses, and Costpers"
+  puts "2. Add an item"
+  puts "3. Log use of an item"
+end
+
+#Method to add item(item_name,item_total_cost)
+  #Accepts: item name, item cost
+  #Creates rows in item database with name, cost, and use
+  #Output: true?
+
+def add_item(name,price)
+end
+
+#Method to display all items with IDs
+  #Accepts: nothing
+  #Calls method to show list of items prefaced by Ids
+  #Output: nil, will just be list
+
+#Validation method for integers(entry)
+  #Accepts gets.chomp entry
+  #Queries whether it's an integer
+  #If true, returns true
+  #If no, return false and put error message
+
+#Method to log single use of an item(item_id)
+  #Accepts: item id
+  #Creates record in use table logging use against item id
+
+#Method to Calculate Cost Per Use
+  #Accepts: item id
+  #Queries item table for cost, queries use table for number of records where item_id = provided item id
+  #Divides cost by sum of records returned above
+  #Writes cost-per-use to item db cost-per-use field
+  #Returns field value of cost-per-use
+  #Note: Want single method that can be called in loop
+
+#Method to display all items with cost per use
+  #Accepts: nothing
+  #Queries items table
+  #Prints item ID, total cost, cost per use
+  #Returns nil
+
+end #class end
+
 
 #-----------------Driver Code---------------------#
+
+your_costper = Costper.new
+
+#create items table
+create_table_items = <<-SQL
+  CREATE TABLE IF NOT EXISTS items(
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(255),
+    price INT
+  );
+  SQL
+
+# create_table_uses = <<-ZZZ
+#   CREATE TABLE IF NOT EXISTS uses(
+#     id INTEGER PRIMARY KEY,
+#     use_date DATE,
+#     item_id INT,
+#     FOREIGN KEY (item_id) REFERENCES items(id)
+#   )
+#   ZZZ
+
+#table creation code
+  db.execute(create_table_items)
+  # db.execute(create_table_uses)

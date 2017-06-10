@@ -11,6 +11,7 @@
     #uses
     #cost_per_use
     #duration_start_date
+    #initialize db
 
 
 #----------MVP methods
@@ -81,7 +82,6 @@
 
 #------------Driver code! 
 
-#Create database if doesn't already exist
 
 #Add tables if they don't already exist
 
@@ -91,4 +91,8 @@
 
 #Ask for item name
 
-#Ask for duration, present options
+#Ask for cost
+
+#Put those in database
+
+#Offer menu of options

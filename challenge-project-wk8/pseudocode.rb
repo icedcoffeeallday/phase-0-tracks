@@ -58,6 +58,9 @@
   #Prints item ID, total cost, cost per use
   #Returns nil
 
+#Method to return to main menu
+  #Accepts any text to return to the main menu
+
 #-----------Nice-to-have methods
 
 #Method to display a single item's cost per use

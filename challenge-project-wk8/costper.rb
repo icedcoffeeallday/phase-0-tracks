@@ -6,8 +6,6 @@ require 'date'
 
 class Costper
   attr_reader :db
-  # , :cost_per_use, :item_total_cost
-  # attr_accessor :uses
 
 def initialize
   @item_name = nil
@@ -24,10 +22,12 @@ def today
 end
 
 def show_main_menu
+  puts ""
   puts "1. View all your items, uses, and Costpers"
   puts "2. Add an item"
   puts "3. Log use of an item"
-    #calls item display, then responds to menu call to log item
+  puts ""
+  puts "Or, type exit to quit. :("
 end
 
 def add_item(name,price)
@@ -38,6 +38,7 @@ end
 def display_items
   items = db.execute("Select id, name, price, cost_per_use from items")
   items.each {|item| puts "#{item[0]}  |  #{item[1]}  |  $#{item[2]}  |  Costper is $#{item[3]}"}
+  # return_to_menu
 end
 
 def log_item_use(id)
@@ -65,6 +66,7 @@ end
 def display_single_item_after_log(id)
   items = db.execute("SELECT name, price, id, cost_per_use FROM items WHERE id = #{id}").flatten
   puts "#{booyah} Your #{items[0]} now cost(s) $#{items[3]} per use."
+  # return_to_menu
 end
 
 def test_output_items
@@ -77,6 +79,13 @@ def booyah
   happy_words.sample
 end
 
+#Method to return to main menu
+  #Accepts any text to return to the main menu
+# def return_to_menu
+#   puts "Type anything to return to the main menu"
+#   entered_command = gets.chomp
+#   menu_choice = 0
+# end
 
 end #class end
 
@@ -84,13 +93,19 @@ end #class end
 #-----------------Driver Code---------------------#
 
 your_costper = Costper.new
+menu_choice = 0
 
 puts "******** Hello! It's time to calculate some Costpers. What would you like to do?"
+puts "Type a number to get started."
+
+
+while menu_choice != "exit"
 
 your_costper.show_main_menu
-
-puts "Type a number to get started."
-menu_choice = gets.chomp.to_i
+menu_choice = gets.chomp
+  if menu_choice != "exit"
+    menu_choice = menu_choice.to_i
+  end
 
 case menu_choice
   when 1
@@ -109,7 +124,13 @@ case menu_choice
       your_costper.log_item_use(item_choice)
       your_costper.calc_cost_per_use(item_choice)
       your_costper.display_single_item_after_log(item_choice)
+  when "exit"
+    break
   else
+    puts ""
+    puts "Invalid input. Enter a number that correlates with the menu, or type exit to quit."
+  end
+
 end
 
 

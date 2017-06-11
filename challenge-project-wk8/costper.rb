@@ -36,6 +36,8 @@ end
 
 def display_items
   items = db.execute("Select id, name, price, cost_per_use from items")
+  puts ""
+  puts "Your items are:"
   items.each {|item| puts "#{item[0]}  |  #{item[1]}  |  $#{item[2]}  |  Costper is $#{item[3]}"}
 end
 
@@ -43,6 +45,16 @@ def log_item_use(id)
   db.execute("INSERT INTO uses (item_id,use_date) VALUES (?,?)", [id,today])
 end
 
+def item_use_wrapper(id)
+  valid_item = db.execute("SELECT * FROM items where id=?", [id])
+  if valid_item.length == 1
+    log_item_use(id)
+    calc_cost_per_use(id)
+    display_single_item_after_log(id)
+  else
+    puts "Whoops! Looks like that's not on your list yet. Please try again."
+  end
+end
 
 def uses(id)
   @uses = db.execute("SELECT * FROM uses WHERE item_id = #{id}").length
@@ -64,11 +76,7 @@ end
 def display_single_item_after_log(id)
   items = db.execute("SELECT name, price, id, cost_per_use FROM items WHERE id = #{id}").flatten
   puts "#{booyah} Your #{items[0]} now cost(s) $#{items[3]} per use."
-end
-
-def test_output_items
-  p db.execute("SELECT items.name, items.price, items.cost_per_use FROM items")
-  #p db.execute("SELECT items.name, uses.use_date from uses JOIN items on uses.item_id = items(id)")
+  p items
 end
 
 def booyah
@@ -76,12 +84,8 @@ def booyah
   happy_words.sample
 end
 
-#Method to return to main menu
-  #Accepts any text to return to the main menu
-# def return_to_menu
-#   puts "Type anything to return to the main menu"
-#   entered_command = gets.chomp
-#   menu_choice = 0
+# def validate_integer(input)
+#   input.to_i != 0
 # end
 
 end #class end
@@ -92,7 +96,7 @@ end #class end
 your_costper = Costper.new
 menu_choice = 0
 
-puts "******** Hello! It's time to calculate some Costpers. What would you like to do?"
+puts "Hello! It's time to calculate some Costpers. What would you like to do?"
 puts "Type a number to get started."
 
 
@@ -114,13 +118,10 @@ case menu_choice
       item_total_cost = gets.chomp.to_i
     your_costper.add_item(item_name,item_total_cost)
   when 3
-    puts "Choose an item to log by typing in the number of the item"
+    puts "Choose an item to log by typing in the number of the item:"
       your_costper.display_items
-    
     item_choice = gets.chomp.to_i
-      your_costper.log_item_use(item_choice)
-      your_costper.calc_cost_per_use(item_choice)
-      your_costper.display_single_item_after_log(item_choice)
+      your_costper.item_use_wrapper(item_choice)
   when "exit"
     puts "See you next time!"
     break
@@ -130,17 +131,3 @@ case menu_choice
   end
 
 end
-
-
-
-
-
-#-----------------Test Code---------------------#
-
-#your_costper.add_item("Louboutins",945)
-#your_costper.display_items
-# your_costper.log_item_use(2)
-# your_costper.log_item_use(3)
-#your_costper.calc_cost_per_use(3)
-#your_costper.test_output_items
-#your_costper.display_all_items_with_CPU

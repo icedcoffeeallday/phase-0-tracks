@@ -14,7 +14,7 @@
     #initialize db
 
 
-#----------MVP methods
+#----------MVP features
 
 #Method to show menu of options
   #Accepts: nothing
@@ -34,12 +34,6 @@
   #Calls method to show list of items prefaced by Ids
   #Output: nil, will just be list
 
-#Validation method for integers(entry)
-  #Accepts gets.chomp entry
-  #Queries whether it's an integer
-  #If true, returns true
-  #If no, return false and put error message
-
 #Method to log single use of an item(item_id)
   #Accepts: item id
   #Creates record in use table logging use against item id
@@ -58,16 +52,21 @@
   #Prints item ID, total cost, cost per use
   #Returns nil
 
+
+#-----------Nice-to-have features
+
+#Validation method for integers(entry)
+  #Accepts gets.chomp entry
+  #Queries whether it's an integer
+  #If true, returns true
+  #If no, return false and put error message
+
 #Method to return to main menu
   #Accepts any text to return to the main menu
-
-#-----------Nice-to-have methods
 
 #Method to display a single item's cost per use
 
 #Method to display an item added
-
-#Method to calculate End Date (use_duration,duration_start_date)
 
 #Method to edit an item name (item_id, updated_item_name)
   #Accepts: item id, updated item name (user process: see list of items w/ ID, enter ID, enter new name)
@@ -82,23 +81,10 @@
 
 #Method to remove a use record
 
+#Implement durations that reset at a given date
+# ie. monthly subscriptions
 
-#------------Driver code! 
 
-
-#Add tables if they don't already exist
-
-#------------User interface
-
-#Welcome + premise + CTA to add item
-
-#Ask for item name
-
-#Ask for cost
-
-#Put those in database
-
-#Offer menu of options
 
 
 #-----------------table create code---------------------#

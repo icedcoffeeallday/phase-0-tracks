@@ -15,7 +15,7 @@ def initialize
   @cost_per_use = nil
   @duration_start_date = nil
   @db = SQLite3::Database.new("costpers.db")
-  db.results_as_hash = true
+  #db.results_as_hash = true
 end
 
 
@@ -74,6 +74,11 @@ end
   #Writes cost-per-use to item db cost-per-use field
   #Returns field value of cost-per-use
   #Note: Want single method that can be called in loop
+def calc_cost_per_use(id)
+  uses = db.execute("SELECT * FROM uses WHERE item_id = #{id}").length
+  @item_total_cost = db.execute("SELECT price FROM items WHERE id = #{id}").join().to_i
+  @cost_per_use = @item_total_cost / uses
+end
 
 #Method to display all items with cost per use
   #Accepts: nothing
@@ -119,5 +124,7 @@ create_table_uses = <<-ZZZ
 #-----------------Test Code---------------------#
 
 #your_costper.add_item("Louboutins",945)
-your_costper.display_items
-your_costper.log_item_use(1)
+#your_costper.display_items
+#your_costper.log_item_use(1)
+p your_costper.db.execute("Select * from uses").length
+your_costper.calc_cost_per_use(1)

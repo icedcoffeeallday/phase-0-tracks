@@ -1,5 +1,6 @@
 #-----------------Require Things---------------------#
 require 'sqlite3'
+require 'date'
 
 #-----------------MVP Methods---------------------#
 
@@ -25,6 +26,11 @@ end
     #1. View all items, uses and costpers
     #2. Add an item
     #3. Log use of an item
+
+
+def today
+  Time.now.strftime('%m/%d/%Y') 
+end
 
 def show_main_menu
   puts "1. View all your items, uses, and Costpers"
@@ -57,6 +63,9 @@ end
   #Creates record in use table logging use against item id
 
 def log_item_use(id)
+  db.execute("INSERT INTO uses (item_id,use_date) VALUES (?,?)", [id,today])
+end
+
 
 #Method to Calculate Cost Per Use
   #Accepts: item id
@@ -111,3 +120,4 @@ create_table_uses = <<-ZZZ
 
 #your_costper.add_item("Louboutins",945)
 your_costper.display_items
+your_costper.log_item_use(1)

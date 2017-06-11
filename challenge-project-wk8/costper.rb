@@ -53,8 +53,8 @@ end
   #Output: nil, will just be list
 
 def display_items
-  items = db.execute("Select id, name, price from items")
-  items.each {|item| puts "#{item['id']}  |  #{item['name']}  |  $#{item['price']}"}
+  items = db.execute("Select id, name, price, cost_per_use from items")
+  items.each {|item| puts "#{item[0]}  |  #{item[1]}  |  $#{item[2]}  |  Costper is $#{item[3]}"}
 end
 
 #Method to log single use of an item(item_id)
@@ -80,34 +80,24 @@ def calc_cost_per_use(id)
     end
   @item_total_cost = db.execute("SELECT price FROM items WHERE id = #{id}").join().to_i
   @cost_per_use = @item_total_cost / uses
-  #need to come back to this. looking for resources on updating a table field as part of the calculation,
-  #so that items has easier access to cost-per-use (instead of having to re-run the calc method over and over)
-  db.execute("UPDATE items SET cost_per_use=(?) WHERE id = #{id}",[@cost_per_use])
+  db.execute("UPDATE items SET cost_per_use=? WHERE id = #{id}",[@cost_per_use])
 end
+
+def uses(id)
 
 #Method to display all items with cost per use
   #Accepts: nothing
   #Queries items table
   #Prints item ID, total cost, cost per use
   #Returns nil
-def display_items_with_CPU
+def display_all_items_with_CPU
   items = db.execute("SELECT name, price, id, cost_per_use FROM items")
   items.each do |item|
-    p item[0]
-    p item[1]
-    p item[2]
-    p item[3]
-    p item[4]
-    p "Congratulations! Your #{item[0]} now costs $#{calc_cost_per_use(item[2])} per use!"
+    p "Congratulations! Your #{item[0]} now costs $#{item[3]} per use!"
   end 
 end
 
 
-#Validation method for integers(entry)
-  #Accepts gets.chomp entry
-  #Queries whether it's an integer
-  #If true, returns true
-  #If no, return false and put error message
 
 end #class end
 
@@ -141,9 +131,8 @@ create_table_uses = <<-ZZZ
 #-----------------Test Code---------------------#
 
 #your_costper.add_item("Louboutins",945)
-#your_costper.display_items
+your_costper.display_items
 # your_costper.log_item_use(2)
 # your_costper.log_item_use(3)
-your_costper.db.execute("Select * from uses").length
 your_costper.calc_cost_per_use(1)
-#your_costper.display_items_with_CPU
+your_costper.display_all_items_with_CPU

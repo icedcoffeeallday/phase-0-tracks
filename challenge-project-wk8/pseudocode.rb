@@ -96,3 +96,31 @@
 #Put those in database
 
 #Offer menu of options
+
+
+#-----------------table create code---------------------#
+
+your_costper = Costper.new
+
+#create table fancy strings
+create_table_items = <<-SQL
+  CREATE TABLE IF NOT EXISTS items(
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(255),
+    price INT,
+    cost_per_use INT
+  );
+  SQL
+
+create_table_uses = <<-ZZZ
+  CREATE TABLE IF NOT EXISTS uses(
+    id INTEGER PRIMARY KEY,
+    use_date DATE,
+    item_id INT,
+    FOREIGN KEY (item_id) REFERENCES items(id)
+  )
+  ZZZ
+
+#call table creation
+  your_costper.db.execute(create_table_items)
+  your_costper.db.execute(create_table_uses)

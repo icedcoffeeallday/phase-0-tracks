@@ -10,7 +10,6 @@ class Costper
 def initialize
   @item_name = nil
   @item_total_cost = nil
-  @item_id = nil #does this end up being a query against table?
   @uses = 0
   @cost_per_use = nil
   @duration_start_date = nil
@@ -27,7 +26,7 @@ def show_main_menu
   puts "2. Add an item"
   puts "3. Log use of an item"
   puts ""
-  puts "Or, type exit to quit. :("
+  puts "Or, type exit to quit."
 end
 
 def add_item(name,price)
@@ -38,7 +37,6 @@ end
 def display_items
   items = db.execute("Select id, name, price, cost_per_use from items")
   items.each {|item| puts "#{item[0]}  |  #{item[1]}  |  $#{item[2]}  |  Costper is $#{item[3]}"}
-  # return_to_menu
 end
 
 def log_item_use(id)
@@ -66,7 +64,6 @@ end
 def display_single_item_after_log(id)
   items = db.execute("SELECT name, price, id, cost_per_use FROM items WHERE id = #{id}").flatten
   puts "#{booyah} Your #{items[0]} now cost(s) $#{items[3]} per use."
-  # return_to_menu
 end
 
 def test_output_items
@@ -113,7 +110,7 @@ case menu_choice
   when 2
     puts "What's the item's name?"
       item_name = gets.chomp
-    puts "How much did it cost?"
+    puts "How much did it cost? Don't include the dollar sign, please!"
       item_total_cost = gets.chomp.to_i
     your_costper.add_item(item_name,item_total_cost)
   when 3
@@ -125,6 +122,7 @@ case menu_choice
       your_costper.calc_cost_per_use(item_choice)
       your_costper.display_single_item_after_log(item_choice)
   when "exit"
+    puts "See you next time!"
     break
   else
     puts ""

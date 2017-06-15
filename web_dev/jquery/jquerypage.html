@@ -5,20 +5,22 @@
     <title>A page about jQuery</title>
     <script>
       $(document).ready(function(){
-          var test = $("#catfish").css("background-color", "yellow");
+          $("#catfish").css("background-color", "yellow");
+          $("#spanny").mouseenter(function(){
+            $(this).css("background-color", "red")
+          });
         });
-    //  });
-</script>
+    </script>
   </head>
 <body>
   <h1>Headers are fun!</h1>
   <h2>Sub-heads are fun, too!</h2>
-  <p>Here's a plain old paragraph.</p>
-  <p id="catfish">Here's a paragraph with an id.</p>
-  <p class="something">Here's a paragraph with a class and some <em>fancy text</em>.</p>
-  <ul>
-    <li>Here's a list item.</li>
-    <li>And <span id="spanny">another</span> one!</li>
-  </ul>
+    <p>Here's a plain old paragraph.</p>
+    <p id="catfish">Here's a paragraph with an id.</p>
+    <p class="something">Here's a paragraph with a class and some <em>fancy text</em>.</p>
+      <ul>
+        <li>Here's a list item.</li>
+        <li>And <span id="spanny">another</span> one!</li>
+      </ul>
 </body>
 </html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>A page about jQuery</title>
+    <link rel ="stylesheet" href="styles.css" type ="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Asar" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+          $("#catfish").css("background-color", "yellow");
+          $("#spanny").mouseenter(function(){
+            $(this).css("background-color", "red")
+          });
+          $(".something").dblclick(function(){
+            $(this).css("background-color", "blue");
+          });
+        });
+    </script>
+  </head>
+<body>
+  <h1>Headers are fun!</h1>
+  <h2>Sub-heads are fun, too!</h2>
+    <p>Here's a plain old paragraph.</p>
+    <p id="catfish">Here's a paragraph with an id.</p>
+    <p class="something">Here's a paragraph with a class and some <em>fancy text</em>.</p>
+      <ul>
+        <li>Here's a list item.</li>
+        <li>And <span id="spanny">another</span> one!</li>
+      </ul>
+</body>
+</html>

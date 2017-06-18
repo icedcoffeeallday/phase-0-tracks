@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>See San Francisco Students</title>
+</head>
+<body>
+<h1>Presenting your San Francisco DBC Cohort!</h1>
+  <ul>
+    <% @sf_students.each do |student| %>
+      <p><%= student['name'] %></p>
+    <% end %>
+  </ul>
+</body>
+</html>

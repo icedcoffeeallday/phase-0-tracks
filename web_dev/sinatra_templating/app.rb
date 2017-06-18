@@ -25,3 +25,10 @@ post '/students' do
 end
 
 # add static resources
+
+# add san francisco page
+
+get '/san_francisco' do
+  @sf_students = db.execute("Select * FROM students WHERE campus = 'SF'")
+  erb :san_francisco
+end

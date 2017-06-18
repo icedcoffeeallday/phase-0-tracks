@@ -61,3 +61,11 @@ get '/great_job' do
     "Great job!"
   end
 end
+
+#add two numbers, watch yer data formats
+get '/:first_num/plus/:second_num' do
+  first_number = params[:first_num].to_i
+  second_number = params[:second_num].to_i
+  sum = first_number + second_number
+  "Sum of #{first_number} and #{second_number} is #{sum}"
+end
